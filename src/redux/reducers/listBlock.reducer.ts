@@ -1,4 +1,4 @@
-import { GET_REGION_DATA, GET_PROVINCE_DATA, GET_COUNTRY_DATA } from '../types/action-types';
+import { SET_REGION_DATA, SET_PROVINCE_DATA, SET_COUNTRY_DATA } from '../types/action-types';
 
 import { listBlockStore } from '../../interfaces/redux/listBlockStore';
 
@@ -13,17 +13,17 @@ const counterStore = (
   { type }: { type: string },
 ) => {
   switch (type) {
-    case GET_REGION_DATA:
+    case SET_REGION_DATA:
       return {
         ...state,
         counter: state.region,
       };
-    case GET_PROVINCE_DATA:
+    case SET_PROVINCE_DATA:
       return {
         ...state,
         counter: state.province,
       };
-    case GET_COUNTRY_DATA:
+    case SET_COUNTRY_DATA:
       return {
         ...state,
         counter: state.country,
