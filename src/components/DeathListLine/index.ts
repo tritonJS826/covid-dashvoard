@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import DeatListLine from './DeatListLine';
+import DeatListLine from './DeathListLine';
 import { ICounterStore } from '../../interfaces/redux/counterStore';
 import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
 
