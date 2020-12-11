@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import counterStore from './counterStore.reducer';
-import listBlockStore from './listBlock.reducer';
+import appStore from './appStore.reducer';
 
 const reducers = combineReducers({
   routing: routerReducer,
   counterStore,
-  listBlockStore,
+  appStore,
 });
 
 export default reducers;
