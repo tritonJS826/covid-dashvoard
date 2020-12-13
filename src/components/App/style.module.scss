@@ -1,6 +1,5 @@
 .App {
-  text-align: center;
-  
+  text-align: center;  
   &-main {
     display: flex;
     flex-direction: row;
@@ -27,11 +26,3 @@
   }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
