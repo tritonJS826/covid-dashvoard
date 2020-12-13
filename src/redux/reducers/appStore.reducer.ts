@@ -1,40 +1,90 @@
-import { FETCH_POSTS } from '../types/action-types';
+import {
+  casesDataType,
+  period,
+  casesNumber,
+  listBlockPressedButtonType,
+  mapPressedButtonType,
+  chartType,
+} from '../../interfaces/types';
 
 import { IAppStore } from '../../interfaces/redux/appStore';
 
+import {
+  SET_CASES_DATA,
+  SET_PERIOD,
+  SET_CASES_NUMBER,
+  SET_LIST_BLOCK_PRESSED_BUTTON_TYPE,
+  SET_MAP_PRESSED_BUTTON_TYPE,
+  SET_CHART_TYPE,
+  SET_CURRENT_REGION,
+  SET_SUMMARY_DATA,
+} from '../types/action-types';
+
 const initialState = {
-  casesData: [], // it's must be string
-  period: '',
-  casesNumber: '',
-  listBlockPressedButtonType: '',
-  mapPressedButtonType: '',
-  chartType: '',
-  currentRegion: '', // initial 'GLOBAL', (typeString)
-  summaryData: [
-    {
-      country: '', // for global Global
-      countryCode: '', // for global 'GLOBAL'
-      slug: '', // for global ''
-      date: '', // for global from first country
-      newConfirmed: 0,
-      totalConfirmed: 0,
-      newDeaths: 0,
-      totalDeaths: 0,
-      newRecovered: 0,
-      totalRecovered: 0,
-    },
-  ],
+  casesData: 'deathCasesData' as casesDataType,
+  period: 'allTime' as period,
+  casesNumber: 'absolute' as casesNumber,
+  listBlockPressedButtonType: 'region' as listBlockPressedButtonType,
+  mapPressedButtonType: 'cumulativeCases' as mapPressedButtonType,
+  chartType: 'logCases' as chartType,
+  currentRegion: 'GLOBAL',
+  summaryData: [],
 };
 
 const appStore = (
   state: IAppStore = initialState,
-  { type, payload }: { type: string, payload: string },
+  { type, payload }: {
+    type: string,
+    payload: casesDataType
+    | period
+    | casesNumber
+    | listBlockPressedButtonType
+    | mapPressedButtonType
+    | chartType
+    | IAppStore
+    | string
+   },
 ) => {
   switch (type) {
-    case FETCH_POSTS:
+    case SET_CASES_DATA:
       return {
         ...state,
-        payload,
+        casesData: payload,
+      };
+    case SET_PERIOD:
+      return {
+        ...state,
+        period: payload,
+      };
+    case SET_CASES_NUMBER:
+      return {
+        ...state,
+        casesNumber: payload,
+      };
+    case SET_LIST_BLOCK_PRESSED_BUTTON_TYPE:
+      return {
+        ...state,
+        listBlockPressedButtonType: payload,
+      };
+    case SET_MAP_PRESSED_BUTTON_TYPE:
+      return {
+        ...state,
+        mapPressedButtonType: payload,
+      };
+    case SET_CHART_TYPE:
+      return {
+        ...state,
+        chartType: payload,
+      };
+    case SET_CURRENT_REGION:
+      return {
+        ...state,
+        currentRegion: payload,
+      };
+    case SET_SUMMARY_DATA:
+      return {
+        ...state,
+        summaryData: payload,
       };
     default:
       return state;

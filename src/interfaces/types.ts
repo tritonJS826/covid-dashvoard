@@ -1,4 +1,4 @@
-export type casesData = 'recoveryCasesData' | 'deseaseCasesData' | 'deathCAsesData';
+export type casesDataType = 'recoveryCasesData' | 'deseaseCasesData' | 'deathCasesData';
 export type period = 'allTime' | 'lastDay';
 export type casesNumber = 'absolute' | 'normalize100000';
 export type listBlockPressedButtonType = 'region' | 'province' | 'county';

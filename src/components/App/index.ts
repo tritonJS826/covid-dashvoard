@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 
 import App from './App';
-import { ICounterStore } from '../../interfaces/redux/counterStore';
-import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
+import { IAppStore } from '../../interfaces/redux/appStore';
+import { setCasesData } from '../../redux/creators/appStore';
+import getCovidSummary from '../../redux/creators/appStoreEffects';
 
-const mapStateToProps = ({ counterStore: { counter } }: { counterStore: ICounterStore }) => ({
-  counter,
+const mapStateToProps = ({ appStore }: { appStore: IAppStore }) => ({
+  appStore,
 });
 
 const actions = {
-  increaseCounter,
-  decreaseCounter,
+  setCasesData,
+  getCovidSummary,
 };
 
 export default connect(mapStateToProps, actions)(App);

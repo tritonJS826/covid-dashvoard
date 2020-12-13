@@ -1,5 +1,5 @@
 import {
-  casesData,
+  casesDataType,
   period,
   casesNumber,
   listBlockPressedButtonType,
@@ -7,11 +7,26 @@ import {
   chartType,
 } from '../types';
 
+export interface IGlobal {
+  NewConfirmed: number,
+  TotalConfirmed: number,
+  NewDeaths: number,
+  TotalDeaths: number,
+  NewRecovered: number,
+  TotalRecovered: number,
+}
+
+export interface ISummaryResponse {
+  Countries: Array<ISummaryData>,
+  Date: string
+  Global: IGlobal,
+  Message: string
+}
 export interface ISummaryData {
-    country: string, // for global Global
-    countryCode: string, // for global 'GLOBAL'
-    slug: string, // for global ''
-    date: string, // for global from first country
+    country: string,
+    countryCode: string,
+    slug: string,
+    date: string,
     newConfirmed: number,
     totalConfirmed: number,
     newDeaths: number,
@@ -20,7 +35,7 @@ export interface ISummaryData {
     totalRecovered: number
 }
 export interface IAppStore {
-    casesData: casesData, // it's must be string
+    casesData: casesDataType, // it's must be string
     period: period,
     casesNumber: casesNumber,
     listBlockPressedButtonType: listBlockPressedButtonType,
