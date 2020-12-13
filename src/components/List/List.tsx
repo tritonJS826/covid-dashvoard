@@ -13,14 +13,16 @@ const List = () => {
   return (
     <div className={styles.List}>
       <table>
-        {countries.map((country) => (
-          <tr key={country.country.toLowerCase()}>
-            <td>
-              {country.country}
-              {country.number}
-            </td>
-          </tr>
-        ))}
+        <tbody>
+          {countries.map((country) => (
+            <tr key={country.country.toLowerCase()}>
+              <td>
+                {country.country}
+                {country.number}
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
