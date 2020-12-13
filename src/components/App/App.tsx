@@ -2,21 +2,22 @@ import React from 'react';
 import logo from '../../logo.svg';
 import styles from './style.module.scss';
 
+import { casesDataType } from '../../interfaces/types';
+import { IAppStore } from '../../interfaces/redux/appStore';
+
 interface Props {
-  counter: number;
+  appStore: IAppStore;
   // eslint-disable-next-line no-unused-vars
-  increaseCounter: (payload: string) => { type: string; payload: string };
-    // eslint-disable-next-line no-unused-vars
-  decreaseCounter: (payload: string) => { type: string; payload: string };
+  setCasesData: (payload: casesDataType) => void;
+  getCovidSummary: () => void;
 }
 
-const App: React.FC<Props> = ({ counter, increaseCounter, decreaseCounter }) => {
-  const onButtonIncrease = () => {
-    increaseCounter('in');
-  };
+const App: React.FC<Props> = ({ appStore, setCasesData, getCovidSummary }) => {
+  const { casesData } = appStore;
 
-  const onButtonDecrease = () => {
-    decreaseCounter('de');
+  const onButtonSetCasesData = () => {
+    setCasesData('deseaseCasesData' as casesDataType);
+    getCovidSummary();
   };
 
   return (
@@ -24,15 +25,13 @@ const App: React.FC<Props> = ({ counter, increaseCounter, decreaseCounter }) => 
       <header className={styles['App-header']}>
         <img src={logo} className={styles['App-logo']} alt="logo" />
         <p>
-          {counter}
+          appStore.casesData:
+          <br />
+          {casesData}
         </p>
-        <button type="button" onClick={onButtonIncrease}>
-          increase!
+        <button type="button" onClick={onButtonSetCasesData}>
+          change casesData from deathCasesData to deseaseCasesData!
         </button>
-        <button type="button" onClick={onButtonDecrease}>
-          decrease!
-        </button>
-
       </header>
     </div>
   );
