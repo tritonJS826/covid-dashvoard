@@ -1,5 +1,5 @@
 import React from 'react';
-import List from '../List'
+import List from '../List';
 import styles from './style.module.scss';
 
 const ListBlock = () => (

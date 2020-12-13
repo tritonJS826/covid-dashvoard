@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 
 import GlobalCasesBlock from './GlobalCasesBlock';
-import { ICounterStore } from '../../interfaces/redux/counterStore';
-import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
+// import { ICounterStore } from '../../interfaces/redux/counterStore';
+// import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
 
-const mapStateToProps = ({ counterStore: { counter } }: { counterStore: ICounterStore }) => ({
-  counter,
-});
+// const mapStateToProps = ({ counterStore: { counter } }: { counterStore: ICounterStore }) => ({
+//   counter,
+// });
 
-const actions = {
-  increaseCounter,
-  decreaseCounter,
-};
+// const actions = {
+//   increaseCounter,
+//   decreaseCounter,
+// };
 
-export default connect(mapStateToProps, actions)(GlobalCasesBlock);
+export default connect()(GlobalCasesBlock);
