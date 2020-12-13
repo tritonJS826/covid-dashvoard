@@ -1,0 +1,36 @@
+.HeaderBlock {
+  text-align: center;
+  height: 60px;
+  margin: 7px;
+  &-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding: 10px;
+    border: 1px solid #363636;
+    background-color: #222;
+    box-sizing: border-box;
+  }
+  &-title {
+    margin: 10px auto;
+    color: #bdbdbd;
+    font-size: 15px;
+  }
+  &-logo {
+    height: 30px;
+    pointer-events: none;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

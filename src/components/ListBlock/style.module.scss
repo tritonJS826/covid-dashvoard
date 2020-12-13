@@ -1,0 +1,10 @@
+.ListBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  margin: 7px;
+  border: 1px solid #363636;
+  background-color: #222;
+  box-sizing: border-box;
+}
