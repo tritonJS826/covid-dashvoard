@@ -2,7 +2,7 @@
   "name": "rss-dashboard-covid",
   "version": "0.1.0",
   "private": true,
-  "precommit":"npm run prettier",
+  "precommit": "npm run prettier",
   "prepush": "call npm run lint && call npm run test",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
