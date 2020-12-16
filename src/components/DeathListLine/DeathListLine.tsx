@@ -1,6 +1,7 @@
 import React from 'react';
 // import List from '../List/List';
 import styles from './style.module.scss';
+import appstyles from '../App/style.module.scss';
 
 //     Deaths cases:
 //     array2 TotalDeaths
@@ -19,11 +20,9 @@ const DeathListLine = () => {
 
   return (
     <div className={styles.death_list_line}>
-      <div>
-        <div className={styles['death_list_line-caption']}>
-          <div className={styles['death_list_line-title']}>Global Deaths</div>
-          <div className={styles['death_list_line-quantity']}>1234567</div>
-        </div>
+      <div className={appstyles.app_caption}>
+        <div className={appstyles.app_caption_title}>Global Deaths</div>
+        <div className={appstyles.app_caption_quantity__white}>1234567</div>
       </div>
       <div className={styles.List}>
         <table>

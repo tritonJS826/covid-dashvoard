@@ -5,7 +5,7 @@ import ListBlock from '../ListBlock';
 import MapBlock from '../MapBlock';
 import TableBlock from '../TableBlock';
 import ChartBlock from '../ChartBlock';
-import styles from './style.module.scss';
+import appstyles from './style.module.scss';
 
 import { casesDataType } from '../../interfaces/types';
 import { IAppStore } from '../../interfaces/redux/appStore';
@@ -23,19 +23,19 @@ const App: React.FC<Props> = () => (
   //   setCasesData('deseaseCasesData' as casesDataType);
   //   getCovidSummary();
   // };
-  <div className={styles.App}>
-    <header className={styles['App-header']}>
+  <div className={appstyles.app}>
+    <header>
       <HeaderBlock />
     </header>
-    <div className={styles['App-main']}>
-      <div className={styles['App-left']}>
+    <div className={appstyles.app_main}>
+      <div className={appstyles.app_left}>
         <GlobalCasesBlock />
         <ListBlock />
       </div>
-      <div className={styles['App-center']}>
+      <div className={appstyles.app_center}>
         <MapBlock />
       </div>
-      <div className={styles['App-right']}>
+      <div className={appstyles.app_right}>
         <TableBlock />
         <ChartBlock />
       </div>
