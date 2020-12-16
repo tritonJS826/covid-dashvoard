@@ -1,4 +1,7 @@
 .App {
+  $color-red: #e60000;
+  $color-green: #70a800;
+
   text-align: center;  
   &-main {
     display: flex;
@@ -24,5 +27,21 @@
   &-center {
     width: 53%;
   }
+  &_caption {
+    text-align: center
+  }
+  &_caption_title {
+    font-size: 14px;
+  }
+  &_caption_quantity {
+    font-size: 20px;
+  }
+  &_caption_quantity__red {
+    font-size: 20px;
+    color: $color-red;
+  }
+  &_caption_quantity__green {
+    font-size: 20px;
+    color: $color-green;
+  }
 }
-
