@@ -23,24 +23,30 @@ export interface ISummaryResponse {
   Message: string
 }
 export interface ISummaryData {
-    country: string,
-    countryCode: string,
-    slug: string,
-    date: string,
-    newConfirmed: number,
-    totalConfirmed: number,
-    newDeaths: number,
-    totalDeaths: number,
-    newRecovered: number,
-    totalRecovered: number
+  country: string,
+  countryCode: string,
+  slug: string,
+  date: string,
+  newConfirmed: number,
+  totalConfirmed: number,
+  newDeaths: number,
+  totalDeaths: number,
+  newRecovered: number,
+  totalRecovered: number
 }
 export interface IAppStore {
-    casesData: casesDataType, // it's must be string
-    period: period,
-    casesNumber: casesNumber,
-    listBlockPressedButtonType: listBlockPressedButtonType,
-    mapPressedButtonType: mapPressedButtonType,
-    chartType: chartType,
-    currentRegion: string, // initial 'GLOBAL', (typeString)
-    summaryData: Array<ISummaryData>
+  casesData: casesDataType, // it's must be string
+  period: period,
+  casesNumber: casesNumber,
+  listBlockPressedButtonType: listBlockPressedButtonType,
+  mapPressedButtonType: mapPressedButtonType,
+  chartType: chartType,
+  currentRegion: string, // initial 'GLOBAL', (typeString)
+  summaryData: Array<ISummaryData>
+}
+
+export interface ICountryFlags {
+  flag: string,
+  name: string,
+  population: number,
 }
