@@ -1,12 +1,12 @@
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import {
-  ISummaryData, ISummaryResponse, ICountryFlags,
+  ISummaryData, ISummaryResponse, ICountryInformation,
 } from '../../interfaces/redux/appStore';
 
 import {
   setSummaryData,
-  setCountryFlags,
+  setCountryInfo,
 } from './appStore';
 
 export const getCovidSummary = (): ThunkAction<Promise<void>, {}, {}, AnyAction> => async (
@@ -52,9 +52,9 @@ export const getCountryFlags = (): ThunkAction<Promise<void>, {}, {}, AnyAction>
 ): Promise<void> => {
   const responseRaw = await fetch('https://restcountries.eu/rest/v2/all?fields=name;population;flag');
   if (responseRaw.ok) {
-    const response: Array<ICountryFlags> = await responseRaw.json();
+    const response: Array<ICountryInformation> = await responseRaw.json();
 
-    dispatch(setCountryFlags([...response]));
+    dispatch(setCountryInfo([...response]));
   } else {
     console.log('fetchError');
   }

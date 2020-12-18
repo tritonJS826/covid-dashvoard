@@ -18,7 +18,7 @@ import {
   SET_CHART_TYPE,
   SET_CURRENT_REGION,
   SET_SUMMARY_DATA,
-  SET_COUNTRY_FLAGS,
+  SET_COUNTRY_INFO,
 } from '../types/action-types';
 
 const initialState = {
@@ -30,7 +30,7 @@ const initialState = {
   chartType: 'logCases' as chartType,
   currentRegion: 'GLOBAL',
   summaryData: [],
-  countryFlags: [],
+  countryInformation: [],
 };
 
 const appStore = (
@@ -88,10 +88,10 @@ const appStore = (
         ...state,
         summaryData: payload,
       };
-    case SET_COUNTRY_FLAGS:
+    case SET_COUNTRY_INFO:
       return {
         ...state,
-        countryFlags: payload,
+        countryInformation: payload,
       };
     default:
       return state;

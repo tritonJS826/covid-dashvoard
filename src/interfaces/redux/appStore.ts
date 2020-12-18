@@ -35,17 +35,17 @@ export interface ISummaryData {
   totalRecovered: number
 }
 export interface IAppStore {
-  casesData: casesDataType, // it's must be string
+  casesData: casesDataType,
   period: period,
   casesNumber: casesNumber,
   listBlockPressedButtonType: listBlockPressedButtonType,
   mapPressedButtonType: mapPressedButtonType,
   chartType: chartType,
-  currentRegion: string, // initial 'GLOBAL', (typeString)
+  currentRegion: string,
   summaryData: Array<ISummaryData>
 }
 
-export interface ICountryFlags {
+export interface ICountryInformation {
   flag: string,
   name: string,
   population: number,

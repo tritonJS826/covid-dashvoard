@@ -7,7 +7,7 @@ import {
   chartType,
 } from '../../interfaces/types';
 
-import { ISummaryData, ICountryFlags } from '../../interfaces/redux/appStore';
+import { ISummaryData, ICountryInformation } from '../../interfaces/redux/appStore';
 
 import {
   SET_CASES_DATA,
@@ -18,7 +18,7 @@ import {
   SET_CHART_TYPE,
   SET_CURRENT_REGION,
   SET_SUMMARY_DATA,
-  SET_COUNTRY_FLAGS,
+  SET_COUNTRY_INFO,
 } from '../types/action-types';
 
 export const setCasesData = (payload: casesDataType) => ({
@@ -64,7 +64,7 @@ export const setSummaryData = (payload: Array<ISummaryData>) => ({
   payload,
 });
 
-export const setCountryFlags = (payload: Array<ICountryFlags>) => ({
-  type: SET_COUNTRY_FLAGS,
+export const setCountryInfo = (payload: Array<ICountryInformation>) => ({
+  type: SET_COUNTRY_INFO,
   payload,
 });
