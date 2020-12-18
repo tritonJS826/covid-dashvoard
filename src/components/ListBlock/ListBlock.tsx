@@ -1,5 +1,5 @@
 import React from 'react';
-import List from '../List';
+import appstyles from '../App/style.module.scss';
 import styles from './style.module.scss';
 
 //     The same data as in the table.
@@ -17,11 +17,43 @@ import styles from './style.module.scss';
 //     array11 (NewDeaths / 100 000 global population) = NewDeaths for the 100 thnds population
 //     array12 (NewRecovered / 100 000 global population) = NewRecovered for the 100thnds popultn
 
+const getCountriesListLine = () => {
+  const countries: any[] = [
+    { country: 'US', number: 10000 },
+    { country: 'Russia', number: 20000 },
+    { country: 'Brazil', number: 30000 },
+    { country: 'Canada', number: 50000 },
+    { country: 'Australia', number: 40000 },
+  ];
+  return (
+    <div className={`${appstyles.app_component_block} ${styles.listblock}`}>
+      <div>
+        <div className={appstyles.app_caption}>
+          <div className={appstyles.app_caption_title}>Cases by Country/Region/Sovereignty</div>
+        </div>
+      </div>
+      <table>
+        <tbody>
+          {countries.map((country) => (
+            <tr key={country.country.toLowerCase()}>
+              <td className={appstyles.app_tableline}>
+                <div className={`${appstyles.app_listline} ${appstyles.app_listline_red}`}>{country.number}</div>
+                {country.country}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className={appstyles.app_buttons_wrapper}>
+        <button type="button" className={appstyles.app_button}>cases</button>
+        <button type="button" className={appstyles.app_button}>indicators</button>      
+      </div>
+    </div>
+  );
+};
+
 const ListBlock = () => (
-  <div className={styles.ListBlock}>
-    <div className={styles['ListBlock-title']}>Cases by Country/Region/Sovereignty</div>
-    <List />
-  </div>
+  getCountriesListLine()
 );
 
 export default ListBlock;

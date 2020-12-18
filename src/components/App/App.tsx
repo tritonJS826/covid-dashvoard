@@ -24,7 +24,7 @@ const App: React.FC<Props> = () => (
   //   getCovidSummary();
   // };
   <div className={appstyles.app}>
-    <header>
+    <header className={appstyles.app_header}>
       <HeaderBlock />
     </header>
     <div className={appstyles.app_main}>

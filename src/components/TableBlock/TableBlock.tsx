@@ -23,7 +23,7 @@ import styles from './style.module.scss';
 //   */ }
 
 const TableBlock = () => (
-  <div className={styles.TableBlock}>
+  <div className={styles.tableblock}>
     <DeathListLine />
   </div>
 );
