@@ -1,18 +1,3 @@
-.DeathListLine {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 7px;
-  border: 1px solid #363636;
-  background-color: #222;
-  box-sizing: border-box;
-  &-caption {
-    margin: 10px;
-  }
-  &-title {
-    font-size: 11px;
-  }
-  &-quantity {
-    font-size: 13px;
-  }
+.deathlistline {
+  overflow-y: auto;
 }

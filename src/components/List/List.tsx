@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './style.module.scss';
+import appstyles from '../App/style.module.scss';
 
 const List = () => {
   const countries: any[] = [
@@ -11,14 +12,14 @@ const List = () => {
   ];
 
   return (
-    <div className={styles.List}>
+    <div className={styles.list}>
       <table>
         <tbody>
           {countries.map((country) => (
             <tr key={country.country.toLowerCase()}>
-              <td>
-                {country.country}
-                {country.number}
+              <td className={appstyles.app_tableline}>
+                <span className={styles.list_country}>{country.country}</span>
+                <span className={styles.list_quantity}>{country.number}</span>
               </td>
             </tr>
           ))}

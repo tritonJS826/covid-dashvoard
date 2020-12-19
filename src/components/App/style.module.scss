@@ -1,28 +1,101 @@
-.App {
+.app {
+  $color-red: #e60000;
+  $color-green: #70a800;
+  $color-white: #ffffff;
+  $color-blue: #73b2ff;
+  $color-light-grey: #bdbdbd;
+  $color-dark-grey: #363636;
+
   text-align: center;  
-  &-main {
+  height: 100vh;
+  overflow-wrap: break-word;
+  
+  &_main {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    height: calc(100vh - 55px);
+    height: calc(100% - 76px);
   }
-  &-left, &-center, &-right {
-    height: 100%;
-  }
-  &-left, &-right {
+  &_left, &_right {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
   }
-  &-left {
-    width: 15%;
+  &_left {
+    width: 20%;
   }
-  &-right {
-    width: 30%;
+  &_right {
+    width: 25%;
   }
-  &-center {
+  &_center {
     width: 53%;
   }
-}
+  &_component_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin: 3px 7px;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #363636;
+  background-color: #222;
+  box-sizing: border-box;
+  } 
+  &_caption {
+    text-align: center
+  }
+  &_caption_title {
+    font-size: 14px;
+  }
+  &_caption_quantity {
+    font-size: 25px;
+    font-weight: 600;
+  }
+  &_caption_quantity__red, &_listline_red {
+    color: $color-red;
+    font-size: 20px;
+  }
+  &_caption_quantity__green, &_listline_green {
+    color: $color-green;
+  }
+  &_caption_quantity__white, &_listline_white {
+    color: $color-white;
+  }
+  &_caption_quantity__blue, &_listline_blue {
+    color: $color-blue;
+  }
+  &_tableline {
+    border-bottom: 1px solid #363636;
+    }
+  &_listline {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  &_buttons_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+   }
+  &_button {
+    width: auto;
+    height: 20px;
+    margin: 0 5px;
+    font-size: 10px;
+    border-radius: 10%;
+    border: 1px solid $color-dark-grey;
+    background-color: $color-light-grey;
 
+  }
+  &_button:hover {
+    cursor: pointer;
+    border: 1px solid $color-light-grey;
+    background-color: $color-dark-grey;
+    transition-duration: .3s;
+    box-shadow: 0px 2px 3px #a09e9e4d;
+    outline: none;
+  }
+}
