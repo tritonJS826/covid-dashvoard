@@ -18,11 +18,6 @@ interface Props {
 }
 
 const App: React.FC<Props> = () => (
-  // const { casesData } = appStore;
-  // const onButtonSetCasesData = () => {
-  //   setCasesData('deseaseCasesData' as casesDataType);
-  //   getCovidSummary();
-  // };
   <div className={appstyles.app}>
     <header className={appstyles.app_header}>
       <HeaderBlock />

@@ -1,7 +1,6 @@
 import React from 'react';
 import Map from '../Map';
 import styles from './style.module.scss';
-// import styles from '../../index.scss';
 
 //     The same data as in the table.
 //     By country:

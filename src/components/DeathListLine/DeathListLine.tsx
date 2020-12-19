@@ -1,6 +1,5 @@
-import React from 'react';
-// import List from '../List/List';
-// import styles from './style.module.scss';
+import React, { MouseEvent } from 'react';
+import styles from './style.module.scss';
 import appstyles from '../App/style.module.scss';
 
 //     Deaths cases:
@@ -18,79 +17,25 @@ const getDeathListLine = (type: string) => {
     { country: 'Australia', number: 40000 },
   ];
 
-  if (type === 'death') {
-    return (
-      <div className={appstyles.app_component_block}>
-        <div>
-          <div className={appstyles.app_caption}>
-            <div className={appstyles.app_caption_title}>Global Deaths</div>
-            <div className={`${appstyles.app_caption_quantity} ${appstyles.app_caption_quantity__green}`}>1234567</div>
-          </div>
-        </div>
-        <table>
-          <tbody>
-            {countries.map((country) => (
-              <tr key={country.country.toLowerCase()}>
-                <td className={appstyles.app_tableline}>
-                  {country.country}
-                  <div className={`${appstyles.app_listline} ${appstyles.app_listline_white}`}>deaths</div>
-                  {country.number}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className={appstyles.app_buttons_wrapper}>
-          <button type="button" className={appstyles.app_button}>cases</button>
-          <button type="button" className={appstyles.app_button}>indicators</button>
-        </div>
-      </div>
-    );
-  }
-  if (type === 'tests') {
-    return (
-      <div className={appstyles.app_component_block}>
-        <div>
-          <div className={appstyles.app_caption}>
-            <div className={appstyles.app_caption_title}>Global Tests Results</div>
-            <div className={`${appstyles.app_caption_quantity} ${appstyles.app_caption_quantity__blue}`}>1234567</div>
-          </div>
-        </div>
-        <table>
-          <tbody>
-            {countries.map((country) => (
-              <tr key={country.country.toLowerCase()}>
-                <td className={appstyles.app_tableline}>
-                  {country.country}
-                  <div className={`${appstyles.app_listline} ${appstyles.app_listline_blue}`}>tests</div>
-                  {country.number}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className={appstyles.app_buttons_wrapper}>
-          <button type="button" className={appstyles.app_button}>cases</button>
-          <button type="button" className={appstyles.app_button}>indicators</button>
-        </div>
-      </div>
-    );
-  }
-  return (
+  const switchSubTables = (e: MouseEvent) => {
+    e.target.getAttribute('data-caption');
+  };
+
+  const subTable = (title: string, color: string, quantity: number) => (
     <div className={appstyles.app_component_block}>
       <div>
         <div className={appstyles.app_caption}>
-          <div className={appstyles.app_caption_title}>Global Recoveries</div>
-          <div className={`${appstyles.app_caption_quantity} ${appstyles.app_caption_quantity__green}`}>1234567</div>
+          <div className={appstyles.app_caption_title}>{title}</div>
+          <div className={`${appstyles.app_caption_quantity} ${appstyles.app_caption_quantity}__${color}`}>{quantity}</div>
         </div>
       </div>
-      <table>
+      <table className={styles.deathlistline}>
         <tbody>
           {countries.map((country) => (
             <tr key={country.country.toLowerCase()}>
               <td className={appstyles.app_tableline}>
                 {country.country}
-                <div className={`${appstyles.app_listline} ${appstyles.app_listline_green}`}>tests</div>
+                <div className={`${appstyles.app_listline} ${appstyles.app_listline}__${color}`}>deaths</div>
                 {country.number}
               </td>
             </tr>
@@ -98,11 +43,29 @@ const getDeathListLine = (type: string) => {
         </tbody>
       </table>
       <div className={appstyles.app_buttons_wrapper}>
-        <button type="button" className={appstyles.app_button}>cases</button>
-        <button type="button" className={appstyles.app_button}>indicators</button>
+        <button type="button" className={appstyles.app_button} data-caption="death" onClick={switchSubTables}>
+          deaths
+        </button>
+        <button type="button" className={appstyles.app_button} data-caption="recoveries" onClick={switchSubTables}>
+          recoveries
+        </button>
+        <button type="button" className={appstyles.app_button} data-caption="tests" onClick={switchSubTables} onCl>
+          test
+        </button>
+        <button type="button" className={appstyles.app_button} data-caption="results" onClick={switchSubTables} onCl>
+          results
+        </button>
       </div>
     </div>
   );
+
+  if (type === 'death') {
+    subTable('Global Deaths', 'white', 12344);
+  }
+  if (type === 'tests') {
+    subTable('Global Tests Results', 'blue', 56403);
+  }
+  return subTable('Global Recoveries', 'green', 88434);
 };
 
 const DeathListLine = () => (

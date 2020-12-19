@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from '../../logo.svg';
 import styles from './style.module.scss';
-// import Burger from '../Burger';
 
 const HeaderBlock = () => (
   <div className={styles.headerblock}>

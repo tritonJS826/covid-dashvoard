@@ -46,7 +46,7 @@ const getCountriesListLine = () => {
       </table>
       <div className={appstyles.app_buttons_wrapper}>
         <button type="button" className={appstyles.app_button}>cases</button>
-        <button type="button" className={appstyles.app_button}>indicators</button>      
+        <button type="button" className={appstyles.app_button}>indicators</button>
       </div>
     </div>
   );

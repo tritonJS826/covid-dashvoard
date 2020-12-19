@@ -1,7 +1,5 @@
 import React from 'react';
 import DeathListLine from '../DeathListLine';
-// import DeseaseListLine from '../DeseaseListLine';
-// import RecoveryListLine from '../RecoveryListLine';
 import styles from './style.module.scss';
 
 // { /* https://api.covid19api.com/summary
