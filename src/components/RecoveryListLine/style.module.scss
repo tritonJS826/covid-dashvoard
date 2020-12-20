@@ -1,10 +1,5 @@
-.recoverylistline {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 7px;
-  border: 1px solid #363636;
-  background-color: #222;
-  box-sizing: border-box;
-  margin-right: 0;
+.line {
+  &__green {
+    color: rgb(33, 168, 28);
+  }
 }
