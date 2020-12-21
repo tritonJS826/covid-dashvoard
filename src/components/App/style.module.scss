@@ -6,7 +6,9 @@
   $color-blue: #73b2ff;
   $color-light-grey: #bdbdbd;
   $color-dark-grey: #363636;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   text-align: center;  
   height: 100vh;
   overflow-wrap: break-word;
@@ -14,35 +16,37 @@
   &_main {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
-    height: calc(100% - 76px);
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
   }
   &_left, &_right {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
-  &_left {
-    width: 20%;
-  }
-  &_right {
-    width: 25%;
-  }
+  // &_left {
+  //   width: 20%;
+  // }
+  // &_right {
+  //   width: 25%;
+  // }
   &_center {
-    width: 53%;
+    width: 60%;
   }
   &_component_block {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  margin: 3px 7px;
+  // width: 100%;
+  // margin: 3px 7px;
   padding: 10px;
   text-align: left;
   border: 1px solid #363636;
   background-color: #222;
-  box-sizing: border-box;
+  // box-sizing: border-box;
   } 
   &_caption {
     text-align: center
@@ -75,7 +79,7 @@
     margin: 0 5px;
   }
   &_buttons_wrapper {
-    width: 100%;
+    // width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -98,5 +102,76 @@
     transition-duration: .3s;
     box-shadow: 0px 2px 3px #a09e9e4d;
     outline: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .app {
+    &_main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+    &_left {
+      order: 1;
+      width: 100%;
+     }
+     &_right {
+       order: 2;
+       width: 100%;
+   
+     }
+     &_center {
+       order: 3;
+       width: 100%;
+       height: 100vh;
+     }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .app {
+    // &_main {
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    // }
+    &_left {
+      order: 1;
+      width: 50%;
+     }
+     &_right {
+       order: 2;
+       width: 50%;
+   
+     }
+     &_center {
+       order: 3;
+       width: 100%;
+       height: 100vh;
+     }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1239px){
+  .app {
+    &_main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    }
+    &_left {
+      order: 1;
+     }
+     &_right {
+       order: 3;
+     }
+     &_center {
+       order: 2;
+
+     }
   }
 }
