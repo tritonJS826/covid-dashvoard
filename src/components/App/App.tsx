@@ -26,7 +26,7 @@ const App: React.FC<Props> = ({ getCovidSummary, getCountryInfo }) => {
 
   return (
     <div className={appstyles.app}>
-      <header className={appstyles.app_header}>
+      <header className={`${appstyles.app_component_block} ${appstyles.app_header}`}>
         <HeaderBlock />
       </header>
       <div className={appstyles.app_main}>
