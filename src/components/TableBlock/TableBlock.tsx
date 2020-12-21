@@ -1,5 +1,6 @@
 import React from 'react';
 import appstyles from '../App/style.module.scss';
+import styles from './style.module.scss';
 import { casesDataType } from '../../interfaces/types';
 
 import List from '../List';
@@ -11,14 +12,14 @@ const countries: Array<countryData> = [
   { id: 3, country: 'Brazil', number: 30000 },
   { id: 4, country: 'Canada', number: 50000 },
   { id: 5, country: 'Australia', number: 40000 },
-  // { id: 6, country: 'Brazil', number: 30000 },
-  // { id: 7, country: 'Canada', number: 50000 },
-  // { id: 8, country: 'Australia', number: 40000 },
-  // { id: 9, country: 'Brazil', number: 30000 },
-  // { id: 10, country: 'Canada', number: 50000 },
-  // { id: 11, country: 'Australia', number: 40000 },
-  // { id: 12, country: 'Brazil', number: 30000 },
-  // { id: 13, country: 'Canada', number: 50000 },
+  { id: 6, country: 'Brazil', number: 30000 },
+  { id: 7, country: 'Canada', number: 50000 },
+  { id: 8, country: 'Australia', number: 40000 },
+  { id: 9, country: 'Brazil', number: 30000 },
+  { id: 10, country: 'Canada', number: 50000 },
+  { id: 11, country: 'Australia', number: 40000 },
+  { id: 12, country: 'Brazil', number: 30000 },
+  { id: 13, country: 'Canada', number: 50000 },
 ];
 
 // { /* https://api.covid19api.com/summary
@@ -46,7 +47,7 @@ interface Props {
 }
 
 const TableBlock: React.FC<Props> = ({ casesData, setCasesData }) => (
-  <div className={appstyles.app_component_block}>
+  <div className={`${appstyles.app_component_block} ${styles.tableblock}`}>
     <List
       title={casesData}
       subtitle="subtitle"

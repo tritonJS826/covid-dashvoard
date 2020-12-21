@@ -1,6 +1,7 @@
 import React from 'react';
 import Map from '../Map';
 import styles from './style.module.scss';
+import appstyles from '../App/style.module.scss';
 
 //     The same data as in the table.
 //     By country:
@@ -18,7 +19,7 @@ import styles from './style.module.scss';
 //     array12 (NewRecovered / 100 000 global population) = NewRecovered for the 100thnds popultn
 
 const MapBlock = () => (
-  <div className={styles.MapBlock}>
+  <div className={`${appstyles.app_component_block} ${styles.mapblock}`}>
     <Map />
   </div>
 );

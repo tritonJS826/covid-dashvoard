@@ -19,11 +19,29 @@ import styles from './style.module.scss';
 
 const getCountriesListLine = () => {
   const countries: any[] = [
-    { country: 'US', number: 10000 },
-    { country: 'Russia', number: 20000 },
-    { country: 'Brazil', number: 30000 },
+    { country: 'US1', number: 10000 },
+    { country: 'Russia1', number: 20000 },
+    { country: 'Brazil1', number: 30000 },
+    { country: 'Canada1', number: 50000 },
+    { country: 'Australia1', number: 40000 },
+    { country: 'US2', number: 10000 },
+    { country: 'Russia2', number: 20000 },
+    { country: 'Brazil22', number: 30000 },
     { country: 'Canada', number: 50000 },
-    { country: 'Australia', number: 40000 },
+    { country: 'Australia2', number: 40000 },
+    { country: 'US33', number: 10000 },
+    { country: 'Russia3', number: 20000 },
+    { country: 'Brazil3', number: 30000 },
+    { country: 'Canada3', number: 50000 },
+    { country: 'Australia3', number: 40000 },
+    { country: 'Brazil4', number: 30000 },
+    { country: 'Canada4', number: 50000 },
+    { country: 'Australia4', number: 40000 },
+    { country: 'US4', number: 10000 },
+    { country: 'Russia5', number: 20000 },
+    { country: 'Brazil5', number: 30000 },
+    { country: 'Canada5', number: 50000 },
+    { country: 'Australia5', number: 40000 },
   ];
   return (
     <div className={`${appstyles.app_component_block} ${styles.listblock}`}>
@@ -32,18 +50,20 @@ const getCountriesListLine = () => {
           <div className={appstyles.app_caption_title}>Cases by Country/Region/Sovereignty</div>
         </div>
       </div>
-      <table>
-        <tbody>
-          {countries.map((country) => (
-            <tr key={country.country.toLowerCase()}>
-              <td className={appstyles.app_tableline}>
-                <div className={`${appstyles.app_listline} ${appstyles.app_listline_red}`}>{country.number}</div>
-                {country.country}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className={appstyles.app_table}>
+        <table>
+          <tbody>
+            {countries.map((country) => (
+              <tr key={country.country.toLowerCase()}>
+                <td className={appstyles.app_tableline}>
+                  <div className={`${appstyles.app_listline} ${appstyles.app_listline_red}`}>{country.number}</div>
+                  {country.country}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className={appstyles.app_buttons_wrapper}>
         <button type="button" className={appstyles.app_button}>cases</button>
         <button type="button" className={appstyles.app_button}>indicators</button>
