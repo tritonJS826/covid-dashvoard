@@ -1,3 +1,5 @@
-.deathlistline {
-  overflow-y: auto;
+.line {
+  &__red {
+    color: #db0b0b;
+  }
 }

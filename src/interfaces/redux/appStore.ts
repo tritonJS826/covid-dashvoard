@@ -1,7 +1,7 @@
 import {
   casesDataType,
-  period,
-  casesNumber,
+  periodType,
+  casesNumberType,
   listBlockPressedButtonType,
   mapPressedButtonType,
   chartType,
@@ -23,30 +23,38 @@ export interface ISummaryResponse {
   Message: string
 }
 export interface ISummaryData {
-  country: string,
-  countryCode: string,
-  slug: string,
-  date: string,
-  newConfirmed: number,
-  totalConfirmed: number,
-  newDeaths: number,
-  totalDeaths: number,
-  newRecovered: number,
-  totalRecovered: number
+  Country: string,
+  CountryCode: string,
+  Slug: string,
+  Date: string,
+  NewConfirmed: number,
+  TotalConfirmed: number,
+  NewDeaths: number,
+  TotalDeaths: number,
+  NewRecovered: number,
+  TotalRecovered: number,
 }
 export interface IAppStore {
   casesData: casesDataType,
-  period: period,
-  casesNumber: casesNumber,
+  period: periodType,
+  casesNumber: casesNumberType,
   listBlockPressedButtonType: listBlockPressedButtonType,
   mapPressedButtonType: mapPressedButtonType,
   chartType: chartType,
   currentRegion: string,
-  summaryData: Array<ISummaryData>
+  summaryData: Array<ISummaryData>,
+  countryInformation: Array<ICountryInformation>
 }
 
 export interface ICountryInformation {
   flag: string,
   name: string,
   population: number,
+  latlng: [number, number],
+  alpha2Code: string,
+}
+
+export interface ICurrentChartData {
+  month: string,
+  value: number,
 }
