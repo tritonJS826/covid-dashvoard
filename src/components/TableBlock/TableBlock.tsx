@@ -1,25 +1,10 @@
 import React from 'react';
 import appstyles from '../App/style.module.scss';
-import { casesDataType } from '../../interfaces/types';
+import { casesDataType, casesNumberType } from '../../interfaces/types';
 
 import List from '../List';
-import { countryData } from '../../interfaces/country';
-
-const countries: Array<countryData> = [
-  { id: 1, country: 'US', number: 10000 },
-  { id: 2, country: 'Russia', number: 20000 },
-  { id: 3, country: 'Brazil', number: 30000 },
-  { id: 4, country: 'Canada', number: 50000 },
-  { id: 5, country: 'Australia', number: 40000 },
-  // { id: 6, country: 'Brazil', number: 30000 },
-  // { id: 7, country: 'Canada', number: 50000 },
-  // { id: 8, country: 'Australia', number: 40000 },
-  // { id: 9, country: 'Brazil', number: 30000 },
-  // { id: 10, country: 'Canada', number: 50000 },
-  // { id: 11, country: 'Australia', number: 40000 },
-  // { id: 12, country: 'Brazil', number: 30000 },
-  // { id: 13, country: 'Canada', number: 50000 },
-];
+// import { countryData } from '../../interfaces/country';
+import { ISummaryData } from '../../interfaces/redux/appStore';
 
 // { /* https://api.covid19api.com/summary
 //     Global:
@@ -41,33 +26,61 @@ const countries: Array<countryData> = [
 
 interface Props {
   casesData: casesDataType;
-    // eslint-disable-next-line no-unused-vars
+  casesNumber: casesNumberType;
+  summaryData: Array<ISummaryData>;
+  currentRegion: string;
+  // eslint-disable-next-line no-unused-vars
   setCasesData: (type: casesDataType) => void;
+  toggleCasesNumber: () => void;
 }
 
-const TableBlock: React.FC<Props> = ({ casesData, setCasesData }) => (
-  <div className={appstyles.app_component_block}>
-    <List
-      title={casesData}
-      subtitle="subtitle"
-      type={casesData}
-      data={countries}
-    />
-    <div className={appstyles.app_buttons_wrapper}>
-      <button type="button" className={appstyles.app_button} onClick={() => setCasesData('deathCasesData' as casesDataType)}>
-        deaths
-      </button>
-      <button type="button" className={appstyles.app_button} onClick={() => setCasesData('recoveryCasesData' as casesDataType)}>
-        recoveries
-      </button>
-      <button type="button" className={appstyles.app_button} onClick={() => setCasesData('deseaseCasesData' as casesDataType)}>
-        test
-      </button>
-      <button type="button" className={appstyles.app_button} onClick={() => {}}>
-        results
-      </button>
+// const getKeyByCasesDataType = (type: casesDataType):
+// 'TotalRecovered' | 'TotalConfirmed' | 'TotalDeaths' => {
+//   if (type === 'recoveryCasesData') return 'TotalRecovered';
+//   if (type === 'deseaseCasesData') return 'TotalConfirmed';
+//   return 'TotalDeaths';
+// };
+
+const TableBlock: React.FC<Props> = ({
+  casesData,
+  casesNumber,
+  summaryData,
+  // currentRegion,
+  setCasesData,
+  toggleCasesNumber,
+}) => {
+// заглушка
+  console.log(summaryData);
+  const listData = () => [{
+    id: 1,
+    country: 'country.Country',
+    number: 1234,
+  }];
+
+  return (
+    <div className={appstyles.app_component_block}>
+      <List
+        title={casesData}
+        subtitle={casesNumber}
+        type={casesData}
+        data={listData()}
+      />
+      <div className={appstyles.app_buttons_wrapper}>
+        <button type="button" className={appstyles.app_button} onClick={() => setCasesData('deathCasesData' as casesDataType)}>
+          deaths
+        </button>
+        <button type="button" className={appstyles.app_button} onClick={() => setCasesData('recoveryCasesData' as casesDataType)}>
+          recoveries
+        </button>
+        <button type="button" className={appstyles.app_button} onClick={() => setCasesData('deseaseCasesData' as casesDataType)}>
+          test
+        </button>
+        <button type="button" className={appstyles.app_button} onClick={toggleCasesNumber}>
+          {casesNumber}
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default TableBlock;

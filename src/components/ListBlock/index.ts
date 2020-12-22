@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 
 import ListBlock from './ListBlock';
-// import { ICounterStore } from '../../interfaces/redux/counterStore';
+import { IAppStore } from '../../interfaces/redux/appStore';
 // import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
 
-// const mapStateToProps = ({ counterStore: { counter } }: { counterStore: ICounterStore }) => ({
-//   counter,
-// });
+const mapStateToProps = ({ appStore: { summaryData } }: { appStore: IAppStore }) => ({
+  summaryData,
+});
 
 // const actions = {
 //   increaseCounter,
 //   decreaseCounter,
 // };
 
-export default connect()(ListBlock);
+export default connect(mapStateToProps)(ListBlock);

@@ -1,5 +1,6 @@
-import React from 'react';
-import styles from './style.module.scss';
+import React, { useRef } from 'react';
+// import styles from './style.module.scss';
+import { Line } from '@ant-design/charts';
 
 //     The same data as in the table.
 //     By country:
@@ -16,10 +17,30 @@ import styles from './style.module.scss';
 //     array11 (NewDeaths / 100 000 global population) = NewDeaths for the 100 thnds population
 //     array12 (NewRecovered / 100 000 global population) = NewRecovered for the 100thnds popultn
 
-const Chart = () => (
-  <div className={styles.chart}>
-    A Chart will be here
-  </div>
-);
+interface Props {
+  data: Array<{ month: string, value: number}>;
+}
+
+const Chart: React.FC<Props> = ({ data }) => {
+  const lineRef = useRef();
+
+  const config = {
+    data,
+    style: {
+      height: '80%',
+      width: '100%',
+    },
+    autoFit: false,
+    xField: 'month',
+    yField: 'value',
+  };
+
+  return (
+    <>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Line {...config} ref={lineRef} />
+    </>
+  );
+};
 
 export default Chart;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeaderBlock from '../HeaderBlock';
 import GlobalCasesBlock from '../GlobalCasesBlock';
 import ListBlock from '../ListBlock';
@@ -15,27 +15,35 @@ interface Props {
   // eslint-disable-next-line no-unused-vars
   setCasesData: (payload: casesDataType) => void;
   getCovidSummary: () => void;
+  getCountryInfo: () => void;
 }
 
-const App: React.FC<Props> = () => (
-  <div className={appstyles.app}>
-    <header className={appstyles.app_header}>
-      <HeaderBlock />
-    </header>
-    <div className={appstyles.app_main}>
-      <div className={appstyles.app_left}>
-        <GlobalCasesBlock />
-        <ListBlock />
-      </div>
-      <div className={appstyles.app_center}>
-        <MapBlock />
-      </div>
-      <div className={appstyles.app_right}>
-        <TableBlock />
-        <ChartBlock />
+const App: React.FC<Props> = ({ getCovidSummary, getCountryInfo }) => {
+  useEffect(() => {
+    getCovidSummary();
+    getCountryInfo();
+  }, []);
+
+  return (
+    <div className={appstyles.app}>
+      <header className={appstyles.app_header}>
+        <HeaderBlock />
+      </header>
+      <div className={appstyles.app_main}>
+        <div className={appstyles.app_left}>
+          <GlobalCasesBlock />
+          <ListBlock />
+        </div>
+        <div className={appstyles.app_center}>
+          <MapBlock />
+        </div>
+        <div className={appstyles.app_right}>
+          <TableBlock />
+          <ChartBlock />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default App;

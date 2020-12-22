@@ -1,7 +1,7 @@
 import {
   casesDataType,
-  period,
-  casesNumber,
+  periodType,
+  casesNumberType,
   listBlockPressedButtonType,
   mapPressedButtonType,
   chartType,
@@ -19,6 +19,7 @@ import {
   SET_CURRENT_REGION,
   SET_SUMMARY_DATA,
   SET_COUNTRY_INFO,
+  TOGGLE_CASES_NUMBER,
 } from '../types/action-types';
 
 export const setCasesData = (payload: casesDataType) => ({
@@ -26,12 +27,12 @@ export const setCasesData = (payload: casesDataType) => ({
   payload,
 });
 
-export const setPeriod = (payload: period) => ({
+export const setPeriod = (payload: periodType) => ({
   type: SET_PERIOD,
   payload,
 });
 
-export const setCasesNumber = (payload: casesNumber) => ({
+export const setCasesNumber = (payload: casesNumberType) => ({
   type: SET_CASES_NUMBER,
   payload,
 });
@@ -67,4 +68,8 @@ export const setSummaryData = (payload: Array<ISummaryData>) => ({
 export const setCountryInfo = (payload: Array<ICountryInformation>) => ({
   type: SET_COUNTRY_INFO,
   payload,
+});
+
+export const toggleCasesNumber = () => ({
+  type: TOGGLE_CASES_NUMBER,
 });

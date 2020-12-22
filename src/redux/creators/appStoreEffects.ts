@@ -47,14 +47,14 @@ export const getCovidSummary = (): ThunkAction<Promise<void>, {}, {}, AnyAction>
   }
 };
 
-export const getCountryFlags = (): ThunkAction<Promise<void>, {}, {}, AnyAction> => async (
+export const getCountryInfo = (): ThunkAction<Promise<void>, {}, {}, AnyAction> => async (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ): Promise<void> => {
-  const responseRaw = await fetch('https://restcountries.eu/rest/v2/all?fields=name;population;flag');
+  const responseRaw = await fetch('https://restcountries.eu/rest/v2/all?fields=name;population;flag;latlng;alpha2Code');
   if (responseRaw.ok) {
     const response: Array<ICountryInformation> = await responseRaw.json();
 
-    dispatch(setCountryInfo([...response]));
+    dispatch(setCountryInfo(response));
   } else {
     console.log('fetchError');
   }

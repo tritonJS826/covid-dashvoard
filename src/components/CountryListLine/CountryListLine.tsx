@@ -10,7 +10,7 @@ interface Props {
 const CountryListLine: React.FC<Props> = ({ string, number }) => (
   <div className={styles.CountryListLine}>
     {string}
-    <div className={styles.line__white}>deaths</div>
+    <div className={styles.line__white}> </div>
     {number}
   </div>
 );
