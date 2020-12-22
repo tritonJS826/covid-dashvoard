@@ -39,17 +39,19 @@ const List: React.FC<Props> = ({
         </div>
       </div>
     </div>
-    <table className={styles.deathlistline}>
-      <tbody>
-        {data.map((country: countryData) => (
-          <tr key={country.id}>
-            <td className={appstyles.app_tableline}>
-              {getLineByType(type, country.country, country.number)}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className={`${appstyles.app_table} ${styles.list_table}`}>
+      <table className={styles.deathlistline}>
+        <tbody>
+          {data.map((country: countryData) => (
+            <tr key={country.id}>
+              <td className={appstyles.app_tableline}>
+                {getLineByType(type, country.country, country.number)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   </div>
 );
 

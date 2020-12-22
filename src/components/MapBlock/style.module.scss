@@ -1,8 +1,8 @@
-.MapBlock {
+.mapblock {
   width: 100%;
-  height: calc(100% - 14px);
-  margin: 7px;
+  height: 100%;
   border: 1px solid #363636;
   background-color: #222;
   box-sizing: border-box;
+  text-align: center;
 }
