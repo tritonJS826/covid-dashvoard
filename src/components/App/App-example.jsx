@@ -7,7 +7,7 @@ interface Props {
   counter: number;
   // eslint-disable-next-line no-unused-vars
   increaseCounter: (payload: string) => { type: string; payload: string };
-    // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   decreaseCounter: (payload: string) => { type: string; payload: string };
 }
 
@@ -27,7 +27,7 @@ const App: React.FC<Props> = ({ counter, increaseCounter, decreaseCounter }) => 
         <p>
           {counter}
         </p>
-        < HeaderBlock />
+        <HeaderBlock />
         <button type="button" onClick={onButtonIncrease}>
           increase!
         </button>

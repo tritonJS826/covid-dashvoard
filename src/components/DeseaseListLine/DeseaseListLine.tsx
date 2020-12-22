@@ -1,11 +1,17 @@
 import React from 'react';
-import List from '../List/List';
 import styles from './style.module.scss';
 
-const DeseaseListLine = () => (
+interface Props {
+  string: string;
+  number: number;
+}
+
+const DeseaseListLine: React.FC<Props> = ({ string, number }) => (
   <div className={styles.DeseaseListLine}>
-    <div className={styles['DeseaseListLine-title']}>Global Deseases</div>
-    <List />
+    {/* <div className={styles['DeseaseListLine-title']}>Global Deseases</div> */}
+    {string}
+    <div className={styles.line__yellow}>desease</div>
+    {number}
   </div>
 );
 

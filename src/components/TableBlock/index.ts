@@ -1,16 +1,23 @@
 import { connect } from 'react-redux';
 
 import TableBlock from './TableBlock';
-// import { ICounterStore } from '../../interfaces/redux/counterStore';
-// import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
+import { IAppStore } from '../../interfaces/redux/appStore';
+import { setCasesData, toggleCasesNumber } from '../../redux/creators/appStore';
 
-// const mapStateToProps = ({ counterStore: { counter } }: { counterStore: ICounterStore }) => ({
-//   counter,
-// });
+const mapStateToProps = ({
+  appStore: { casesData, casesNumber, summaryData, currentRegion },
+}: {
+    appStore: IAppStore;
+}) => ({
+  casesData,
+  casesNumber,
+  summaryData,
+  currentRegion,
+});
 
-// const actions = {
-//   increaseCounter,
-//   decreaseCounter,
-// };
+const actions = {
+  setCasesData,
+  toggleCasesNumber,
+};
 
-export default connect()(TableBlock);
+export default connect(mapStateToProps, actions)(TableBlock);
