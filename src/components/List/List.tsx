@@ -42,7 +42,7 @@ const List: React.FC<Props> = ({
     <div className={`${appstyles.app_table} ${styles.list_table}`}>
       <table className={styles.deathlistline}>
         <tbody>
-          {data.map((country: countryData) => (
+          {data && data.map((country: countryData) => (
             <tr key={country.id}>
               <td className={appstyles.app_tableline}>
                 {getLineByType(type, country.country, country.number)}
