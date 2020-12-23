@@ -5,6 +5,7 @@ import ListBlock from '../ListBlock';
 import MapBlock from '../MapBlock';
 import TableBlock from '../TableBlock';
 import ChartBlock from '../ChartBlock';
+import FooterBlock from '../FooterBlock';
 import appstyles from './style.module.scss';
 
 interface Props {
@@ -20,7 +21,7 @@ const App: React.FC<Props> = ({
 
   return (
     <div className={appstyles.app}>
-      <header className={`${appstyles.app_component_block} ${appstyles.app_header}`}>
+      <header className={appstyles.app_header}>
         <HeaderBlock />
       </header>
       <div className={appstyles.app_main}>
@@ -36,6 +37,9 @@ const App: React.FC<Props> = ({
           <ChartBlock />
         </div>
       </div>
+      <footer className={appstyles.app_footer}>
+        <FooterBlock />
+      </footer>
     </div>
   );
 };

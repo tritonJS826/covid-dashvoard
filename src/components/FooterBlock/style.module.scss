@@ -1,0 +1,17 @@
+.footerblock {
+  text-align: center;
+  padding: 3px 0;
+ 
+  &_title {
+    color: #bdbdbd;
+    font-size: 14px;
+  }
+  &_link {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  &_link > a {
+    color:#bdbdbd;
+    text-decoration: none;
+  }
+}
