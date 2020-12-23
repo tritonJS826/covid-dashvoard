@@ -1,3 +1,7 @@
 .chartblock {
-  height: 250px;
+  // height: 200px;
+  &>div:first-child{
+    padding: 10px;
+    min-height: 130px;
+  }
 }

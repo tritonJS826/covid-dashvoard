@@ -41,6 +41,9 @@ const ListBlock: React.FC<Props> = ({ summaryData }) => {
 
   return (
     <div className={`${appstyles.app_component_block} ${styles.listblock}`}>
+      <div className={appstyles.app_caption}>
+        <div className={appstyles.app_caption_title}>Cases by Country/Region/Sovereignty</div>
+      </div>
       <List
         title="Global"
         subtitle=""
@@ -64,11 +67,11 @@ const ListBlock: React.FC<Props> = ({ summaryData }) => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
       <div className={appstyles.app_buttons_wrapper}>
         <button type="button" className={appstyles.app_button}>cases</button>
-        <button type="button" className={appstyles.app_button}>indicators</button>
-      </div> */}
+        <button type="button" className={appstyles.app_button}>absolute</button>
+      </div>
     </div>
   );
 };

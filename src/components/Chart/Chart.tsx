@@ -26,10 +26,11 @@ const Chart: React.FC<Props> = ({ data }) => {
 
   const config = {
     data,
-    style: {
-      height: '80%',
-      width: '100%',
-    },
+    // style: {
+    //   height: '70%',
+    //   width: '100%',
+    //   margin: '15px',
+    // },
     autoFit: false,
     xField: 'month',
     yField: 'value',

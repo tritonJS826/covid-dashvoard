@@ -23,5 +23,18 @@ const MapBlock = () => (
     <Map />
   </div>
 );
+// class MapBlock extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.addActiveClass = this.addActiveClass.bind(this);
+//     this.state
+//   }
+// }
+// onClick={handleBlockClick}
+// function handleBlockClick(e) {
+//     <div className={isActive ? 'your_className': null}
+//       onClick={toggleClass}
+//     ></div>
+// }
 
 export default MapBlock;
