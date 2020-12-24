@@ -13,7 +13,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
-    "@types/react-redux": "s^7.1.11",
+    "@types/react-redux": "^7.1.11",
     "leaflet": "^1.7.1",
     "node-sass": "^4.0.0",
     "react": "^17.0.1",

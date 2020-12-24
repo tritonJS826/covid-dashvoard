@@ -10,6 +10,9 @@ const FooterBlock = () => (
         <a href="https://github.com/tritonjs826">tritonjs826</a>
       </div>
       <div className={styles.footerblock_link}>
+        <a href="https://github.com/DzmitrySiniakou">DzmitrySiniakou</a>
+      </div>
+      <div className={styles.footerblock_link}>
         <a href="https://github.com/grntea">GrnTea</a>
       </div>
       <span>2020 © COVID-Dashboard</span>

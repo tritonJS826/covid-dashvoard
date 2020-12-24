@@ -37,14 +37,14 @@
     width: 60%;
   }
   &_component_block {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 3px;
-  padding: 10px;
-  border: 1px solid #363636;
-  background-color: #222;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    padding: 10px;
+    border: 1px solid #363636;
+    background-color: #222;
   } 
   &_caption {
     text-align: center
@@ -106,7 +106,6 @@
     border-radius: 10%;
     border: 1px solid $color-dark-grey;
     background-color: $color-light-grey;
-
   }
   &_button:hover {
     cursor: pointer;
@@ -116,7 +115,33 @@
     box-shadow: 0px 2px 3px #a09e9e4d;
     outline: none;
   }
+  &_popup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #000;
+  }
+  &_popup_button {
+    display: none;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $color-dark-grey;
+    background-color: $color-light-grey;
+  }
+  &_popup_button_active {
+    display: block;
+  }
 }
+
 
 @media (max-width: 767px) {
   .app {
@@ -178,7 +203,7 @@
     &_center {
       order: 4;
       width: 100%;
-      height: 100%;
+      min-height: 500px;
     }
     &_footer {
       order: 5;

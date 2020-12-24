@@ -29,9 +29,9 @@ const ListBlock: React.FC<Props> = ({ mergedCovidCountryData }) => {
 
   return (
     <div className={`${appstyles.app_component_block} ${styles.listblock}`}>
-        <div className={appstyles.app_caption}>
-            <div className={appstyles.app_caption_title}>Cases by Country/Region/Sovereignty</div>
-        </div>
+      <div className={appstyles.app_caption}>
+        <div className={appstyles.app_caption_title}>Cases by Country/Region/Sovereignty</div>
+      </div>
       {console.log(countries)}
       {mergedCovidCountryData && (
       <List
