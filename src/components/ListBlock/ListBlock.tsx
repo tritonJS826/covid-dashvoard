@@ -10,14 +10,6 @@ interface Props {
 }
 
 const ListBlock: React.FC<Props> = ({ mergedCovidCountryData }) => {
-  // const countries: any[] = [
-  //   { country: 'US', number: 10000 },
-  //   { country: 'Russia', number: 20000 },
-  //   { country: 'Brazil', number: 30000 },
-  //   { country: 'Canada', number: 50000 },
-  //   { country: 'Australia', number: 40000 },
-  // ];
-
   let countries = [] as countryData[];
   if (mergedCovidCountryData) {
     countries = mergedCovidCountryData.map((country, i: number): countryData => ({

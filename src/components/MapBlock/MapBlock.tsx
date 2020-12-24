@@ -26,7 +26,7 @@ import appstyles from '../App/style.module.scss';
 
 class MapBlock extends React.Component<any, any> {
   constructor() {
-    super(); // necessary here?
+    super();
     this.addActiveClass = this.addActiveClass.bind(this);
     this.state = {
       active: false,
@@ -69,56 +69,3 @@ class MapBlock extends React.Component<any, any> {
 }
 
 export default MapBlock;
-
-// onClick={handleBlockClick}
-// function handleBlockClick(e) {
-//     <div className={isActive ? 'your_className': null}
-//       onClick={toggleClass}
-//     ></div>
-// }
-// class Popup extends React.Component
-//   render() {
-//     return (
-//       <div className='popup'>
-//         <div className='popup_inner'>
-//           <h1>{this.props.text}</h1>
-//         <button onClick={this.props.closePopup}>X</button>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-// class App extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       showPopup: false
-//     };
-//   }
-//   togglePopup() {
-//     this.setState({
-//       showPopup: !this.state.showPopup
-//     });
-//   }
-//   render() {
-//     return (
-//       <div className='app'>
-//         <h1>hihi</h1>
-//         <button onClick={this.togglePopup.bind(this)}>show popup</button>
-//         <button onClick={() => {alert('woooooooot?');}}>try me when popup is open</button>
-//         <p>Ganz viel inhalt.<br />Ganz viel inhalt.<br />Ganz viel inhalt.<br /></p>
-//         {this.state.showPopup ?
-//           <Popup
-//             text='Close Me'
-//             closePopup={this.togglePopup.bind(this)}
-//           />
-//           : null
-//         }
-//       </div>
-//     );
-//   }
-// };
-// ReactDOM.render(
-//   <App />,
-//   document.getElementById('content')
-// );

@@ -1,7 +1,7 @@
 import React from 'react';
 // import List from '../List/List';
 import styles from './style.module.scss';
-// import appstyle from '../App/style.module.scss';
+import appstyle from '../App/style.module.scss';
 
 //     Recovery cases:
 // array1 TotalRecovered
@@ -20,9 +20,9 @@ const RecoveryListLine: React.FC<Props> = ({ string, number }) => (
       <div className={appstyles.app_caption_title}>Global Recoveries</div>
       <div className={appstyles.app_caption_quantity__green}>1234567</div>
     </div> */}
-    {string}
-    <div className={styles.line__green}>death</div>
-    {number}
+    <div className={appstyle.app_listline}>{string}</div>
+    <div className={`${appstyle.app_listline} ${styles.line__green}`}>recovery</div>
+    <div className={appstyle.app_listline}>{number}</div>
   </div>
 );
 

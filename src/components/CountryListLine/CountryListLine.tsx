@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.module.scss';
-// import appstyles from '../App/style.module.scss';
+import appstyle from '../App/style.module.scss';
 
 interface Props {
   string: string;
@@ -9,9 +9,9 @@ interface Props {
 
 const CountryListLine: React.FC<Props> = ({ string, number }) => (
   <div className={styles.CountryListLine}>
-    {string}
-    <div className={styles.line__white}> </div>
-    {number}
+    <div className={appstyle.app_listline}>{string}</div>
+    <div className={`${appstyle.app_listline} ${styles.line__green}`}> </div>
+    <div className={appstyle.app_listline}>{number}</div>
   </div>
 );
 

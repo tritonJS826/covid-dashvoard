@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.module.scss';
-// import appstyles from '../App/style.module.scss';
+import appstyle from '../App/style.module.scss';
 
 //     Deaths cases:
 //     array2 TotalDeaths
@@ -15,9 +15,9 @@ interface Props {
 
 const DeathListLine: React.FC<Props> = ({ string, number }) => (
   <div className={styles.deathlistlines}>
-    {string}
-    <div className={styles.line__red}>death</div>
-    {number}
+    <div className={appstyle.app_listline}>{string}</div>
+    <div className={`${appstyle.app_listline} ${styles.line__red}`}>death</div>
+    <div className={appstyle.app_listline}>{number}</div>
   </div>
 );
 
