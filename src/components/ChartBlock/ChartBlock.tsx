@@ -4,6 +4,9 @@ import ChartPagination from '../ChartPagination';
 import styles from './style.module.scss';
 import appstyles from '../App/style.module.scss';
 
+import { IMergedElement } from '../../interfaces/redux/appStore';
+import { casesDataType } from '../../interfaces/types';
+
 const dataMock = [
   { month: '1991', value: 3 },
   { month: '1992', value: 4 },
@@ -17,15 +20,33 @@ const dataMock = [
 ];
 
 interface Props {
-  data: Array<any>
+  data: Array<IMergedElement>;
+  casesData: casesDataType;
 }
 
-const ChartBlock: React.FC<Props> = ({ data }) => (
-  <div className={`${appstyles.app_component_block} ${styles.chartblock}`}>
-    {console.log(data || dataMock)}
-    <Chart data={dataMock} />
-    <ChartPagination />
-  </div>
-);
+const ChartBlock: React.FC<Props> = ({ data }) => {
+  const chartData = () => { // rewrite
+    // data.map((el) => {
+    //   const value = el.TotalConfirmed;
+    //   return {
+    //     month: el.date,
+    //     value,
+    //   };
+    // });
+    console.log(data);
+    return dataMock;
+  };
+
+  return (
+    <>
+      { data && console.log(data)}
+      <div className={`${appstyles.app_component_block} ${styles.chartblock}`}>
+        {console.log(data || dataMock)}
+        <Chart data={chartData()} />
+        <ChartPagination />
+      </div>
+    </>
+  );
+};
 
 export default ChartBlock;

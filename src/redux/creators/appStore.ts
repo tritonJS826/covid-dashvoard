@@ -7,7 +7,7 @@ import {
   chartType,
 } from '../../interfaces/types';
 
-import { ISummaryData, ICountryInformation } from '../../interfaces/redux/appStore';
+import { ISummaryData, ICountryInformation, IMergedElement } from '../../interfaces/redux/appStore';
 
 import {
   SET_CASES_DATA,
@@ -20,6 +20,7 @@ import {
   SET_SUMMARY_DATA,
   SET_COUNTRY_INFO,
   TOGGLE_CASES_NUMBER,
+  SET_MERGED_COUNTRY_COVID_DATA,
 } from '../types/action-types';
 
 export const setCasesData = (payload: casesDataType) => ({
@@ -72,4 +73,9 @@ export const setCountryInfo = (payload: Array<ICountryInformation>) => ({
 
 export const toggleCasesNumber = () => ({
   type: TOGGLE_CASES_NUMBER,
+});
+
+export const setMergedCountryCovidData = (data: Array<IMergedElement>) => ({
+  type: SET_MERGED_COUNTRY_COVID_DATA,
+  payload: data,
 });

@@ -7,7 +7,13 @@ import {
   chartType,
 } from '../../interfaces/types';
 
-import { IAppStore, ICurrentChartData, ISummaryData } from '../../interfaces/redux/appStore';
+import {
+  IAppStore,
+  ICurrentChartData,
+  IMergedElement,
+  ISummaryData,
+  ICountryInformation,
+} from '../../interfaces/redux/appStore';
 
 import {
   SET_CASES_DATA,
@@ -20,6 +26,7 @@ import {
   SET_SUMMARY_DATA,
   SET_COUNTRY_INFO,
   TOGGLE_CASES_NUMBER,
+  SET_MERGED_COUNTRY_COVID_DATA,
 } from '../types/action-types';
 
 const initialState = {
@@ -32,7 +39,8 @@ const initialState = {
   currentChartData: [] as Array<ICurrentChartData>,
   currentRegion: 'GLOBAL',
   summaryData: [] as Array<ISummaryData>,
-  countryInformation: [],
+  countryInformation: [] as Array<ICountryInformation>,
+  mergedCovidCountryData: [] as Array<IMergedElement>,
 };
 
 const appStore = (
@@ -47,6 +55,7 @@ const appStore = (
     | chartType
     | IAppStore
     | string
+    | IMergedElement[]
    },
 ) => {
   switch (type) {
@@ -99,6 +108,12 @@ const appStore = (
       return {
         ...state,
         casesNumber: state.casesNumber === 'absolute' ? 'normalize1000000' : 'absolute',
+      };
+    case SET_MERGED_COUNTRY_COVID_DATA:
+      console.log('payload', payload);
+      return {
+        ...state,
+        mergedCovidCountryData: payload,
       };
     default:
       return state;
