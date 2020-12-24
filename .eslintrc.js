@@ -24,6 +24,8 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'no-use-before-define': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'import/extensions': [
       'error',

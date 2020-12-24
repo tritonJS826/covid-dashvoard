@@ -1,24 +1,10 @@
 .headerblock {
   text-align: center;
   padding: 3px 0;
-  &_wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    background-color: #222;
-    box-sizing: border-box;
-  }
+ 
   &_title {
     margin: 10px auto;
     color: #bdbdbd;
     font-size: 15px;
-  }
-  &_logo {
-    height: 30px;
-    pointer-events: none;
-    @media (prefers-reduced-motion: no-preference) {
-      animation: App-logo-spin infinite 20s linear;
-    }
   }
 }
