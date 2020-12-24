@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './style.module.scss';
+// import styles from './style.module.scss';
 import appstyles from '../App/style.module.scss';
 import { casesDataType, casesNumberType } from '../../interfaces/types';
 
 import List from '../List';
 // import { countryData } from '../../interfaces/country';
-import { ISummaryData } from '../../interfaces/redux/appStore';
+import { IMergedElement } from '../../interfaces/redux/appStore';
 
 // { /* https://api.covid19api.com/summary
 //     Global:
@@ -28,7 +28,7 @@ import { ISummaryData } from '../../interfaces/redux/appStore';
 interface Props {
   casesData: casesDataType;
   casesNumber: casesNumberType;
-  summaryData: Array<ISummaryData>;
+  data: Array<IMergedElement>;
   currentRegion: string;
   // eslint-disable-next-line no-unused-vars
   setCasesData: (type: casesDataType) => void;
@@ -45,27 +45,49 @@ interface Props {
 const TableBlock: React.FC<Props> = ({
   casesData,
   casesNumber,
-  summaryData,
+  data,
   // currentRegion,
   setCasesData,
   toggleCasesNumber,
 }) => {
-// заглушка
-  console.log(summaryData);
-  const listData = () => [{
-    id: 1,
-    country: 'country.Country',
-    number: 1234,
-  }];
+  const listData = (
+    casesDataParam: casesDataType,
+    casesNumberParam: casesNumberType,
+    dataParam: IMergedElement[],
+    // currentRegionParam,
+  ) => dataParam.map((country: IMergedElement, i:number) => {
+    const getNumberByCase = (countryData: IMergedElement, cases: casesDataType) => { // helper
+      if (cases === 'deathCasesData') return country.TotalDeaths;
+      if (cases === 'deseaseCasesData') return country.TotalConfirmed;
+      return country.TotalRecovered;
+    };
+
+    const tryNormalize = (amount: number | undefined) => {
+      if (!amount) return 0;
+      // if (casesNumberParam === 'normalize100000') return (amount / country.population) * 100000;
+      if (casesNumberParam === 'absolute') return amount;
+      return Math.round((amount / country.population) * 100000 * 1000) / 1000;
+    };
+
+    console.log('try', tryNormalize(getNumberByCase(country, casesDataParam)));
+    return {
+      id: i,
+      country: country.name,
+      number: tryNormalize(getNumberByCase(country, casesDataParam)),
+    };
+  });
 
   return (
     <div className={appstyles.app_component_block}>
-      <List
-        title={casesData}
-        subtitle={casesNumber}
-        type={casesData}
-        data={listData()}
-      />
+      {console.log('ListBlock', listData(casesData, casesNumber, data)[0])}
+      {data && (
+        <List
+          title={casesData}
+          subtitle={casesNumber}
+          type={casesData}
+          data={listData(casesData, casesNumber, data)}
+        />
+      )}
       <div className={appstyles.app_buttons_wrapper}>
         <button type="button" className={appstyles.app_button} onClick={() => setCasesData('deathCasesData' as casesDataType)}>
           deaths

@@ -5,14 +5,16 @@ import { IAppStore } from '../../interfaces/redux/appStore';
 import { setCasesData, toggleCasesNumber } from '../../redux/creators/appStore';
 
 const mapStateToProps = ({
-  appStore: { casesData, casesNumber, summaryData, currentRegion },
+  appStore: {
+    casesData, casesNumber, currentRegion, mergedCovidCountryData,
+  },
 }: {
     appStore: IAppStore;
 }) => ({
   casesData,
   casesNumber,
-  summaryData,
   currentRegion,
+  data: mergedCovidCountryData,
 });
 
 const actions = {

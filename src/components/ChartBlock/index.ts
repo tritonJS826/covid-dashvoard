@@ -5,8 +5,9 @@ import ChartBlock from './ChartBlock';
 // import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
 import { IAppStore } from '../../interfaces/redux/appStore';
 
+// eslint-disable-next-line
 const mapStateToProps = ({ appStore }: { appStore: IAppStore }) => ({
-  appStore,
+  data: appStore.mergedCovidCountryData,
 });
 
 // const actions = {

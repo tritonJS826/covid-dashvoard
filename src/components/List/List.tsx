@@ -32,6 +32,7 @@ const List: React.FC<Props> = ({
 }) => (
   <div className={styles.list}>
     <div>
+      {console.log('List', data[0])}
       <div className={appstyles.app_caption}>
         <div className={appstyles.app_caption_title}>{title}</div>
         <div className={`${appstyles.app_caption_quantity} ${appstyles.app_caption_quantity}__white`}>
@@ -41,15 +42,17 @@ const List: React.FC<Props> = ({
     </div>
     <div className={`${appstyles.app_table} ${styles.list_table}`}>
       <table className={styles.deathlistline}>
+        {data && (
         <tbody>
           {data.map((country: countryData) => (
             <tr key={country.id}>
               <td className={appstyles.app_tableline}>
-                {getLineByType(type, country.country, country.number)}
+                {getLineByType(type, country.country || 'undef', country.number || 0)}
               </td>
             </tr>
           ))}
         </tbody>
+        )}
       </table>
     </div>
   </div>
