@@ -1,16 +1,10 @@
 import { connect } from 'react-redux';
 
 import Map from './Map';
-// import { ICounterStore } from '../../interfaces/redux/counterStore';
-// import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
+import { IAppStore } from '../../interfaces/redux/appStore';
 
-// const mapStateToProps = ({ counterStore: { counter } }: { counterStore: ICounterStore }) => ({
-//   counter,
-// });
+const mapStateToProps = ({ appStore }: { appStore: IAppStore }) => ({
+  appStore,
+});
 
-// const actions = {
-//   increaseCounter,
-//   decreaseCounter,
-// };
-
-export default connect()(Map);
+export default connect(mapStateToProps)(Map);
