@@ -7,21 +7,15 @@ import TableBlock from '../TableBlock';
 import ChartBlock from '../ChartBlock';
 import appstyles from './style.module.scss';
 
-import { casesDataType } from '../../interfaces/types';
-import { IAppStore } from '../../interfaces/redux/appStore';
-
 interface Props {
-  appStore: IAppStore;
-  // eslint-disable-next-line no-unused-vars
-  setCasesData: (payload: casesDataType) => void;
-  getCovidSummary: () => void;
-  getCountryInfo: () => void;
+  mergeCountryInfoCovidSummary: () => void;
 }
 
-const App: React.FC<Props> = ({ getCovidSummary, getCountryInfo }) => {
+const App: React.FC<Props> = ({
+  mergeCountryInfoCovidSummary,
+}) => {
   useEffect(() => {
-    getCovidSummary();
-    getCountryInfo();
+    mergeCountryInfoCovidSummary();
   }, []);
 
   return (

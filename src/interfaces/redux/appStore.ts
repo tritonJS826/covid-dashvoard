@@ -26,7 +26,7 @@ export interface ISummaryData {
   Country: string,
   CountryCode: string,
   Slug: string,
-  Date: string,
+  date: string,
   NewConfirmed: number,
   TotalConfirmed: number,
   NewDeaths: number,
@@ -42,7 +42,8 @@ export interface IAppStore {
   mapPressedButtonType: mapPressedButtonType,
   chartType: chartType,
   currentRegion: string,
-  summaryData: Array<ISummaryData>
+  summaryData: Array<ISummaryData>,
+  mergedCovidCountryData: Array<IMergedElement>,
 }
 
 export interface ICountryInformation {
@@ -56,4 +57,22 @@ export interface ICountryInformation {
 export interface ICurrentChartData {
   month: string,
   value: number,
+}
+
+export interface IMergedElement {
+  flag: string,
+  name: string,
+  population: number,
+  latlng: [number, number],
+  alpha2Code: string,
+  Country?: string,
+  CountryCode?: string,
+  Slug?: string,
+  date?: string,
+  NewConfirmed?: number,
+  TotalConfirmed?: number,
+  NewDeaths?: number,
+  TotalDeaths?: number,
+  NewRecovered?: number,
+  TotalRecovered?: number,
 }
