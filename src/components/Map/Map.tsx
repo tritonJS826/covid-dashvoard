@@ -18,8 +18,9 @@ interface Props {
 }
 
 const Map: React.FC<Props> = ({ appStore }) => {
-  const renderCircle = () => appStore.countryInformation
-    .map((element, index) => element.latlng.length > 1 && (
+  console.log(appStore);
+  const renderCircle = () => appStore.mergedCovidCountryData
+    .map((element) => element.latlng.length > 1 && (
     <CircleMarker
       center={element.latlng}
       pathOptions={{ color: 'red', stroke: false }}
@@ -30,11 +31,19 @@ const Map: React.FC<Props> = ({ appStore }) => {
         <div>
           <div>{element.name}</div>
           <div>
-            infected:
-            {appStore.summaryData[index]
-            && appStore.summaryData[index].CountryCode === element.alpha2Code
-              ? appStore.summaryData[index].TotalConfirmed
-              : 'missing information'}
+            <div>
+              infected:
+              {element.TotalConfirmed}
+            </div>
+
+            <div>
+              deaths:
+              {element.TotalDeaths}
+            </div>
+            <div>
+              recovered:
+              {element.TotalRecovered}
+            </div>
           </div>
         </div>
       </Popup>
