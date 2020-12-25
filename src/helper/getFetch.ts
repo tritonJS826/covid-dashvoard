@@ -21,7 +21,7 @@ export const getCovidSummary = async (): Promise<ISummaryData[] | null> => {
 
       const global: ISummaryData = {
         Country: 'GLOBAL',
-        CountryCode: '',
+        CountryCode: 'GLOBAL',
         Slug: '',
         NewConfirmed,
         TotalConfirmed,

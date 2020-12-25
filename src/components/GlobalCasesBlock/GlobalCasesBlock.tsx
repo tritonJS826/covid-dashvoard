@@ -7,15 +7,28 @@ interface Props {
   mergedCovidCountryData: Array<IMergedElement>
 }
 
-const GlobalCasesBlock: React.FC<Props> = ({ mergedCovidCountryData }) => (
-  <div className={`${appstyles.app_component_block} ${styles.globalcases}`}>
-    <div className={appstyles.app_caption_title}>Global Cases</div>
-    {mergedCovidCountryData.length > 1 && (
-      <div className={`${appstyles.app_caption_quantity} ${appstyles.app_caption_quantity__red}`}>
-        {mergedCovidCountryData[mergedCovidCountryData.length - 1].TotalConfirmed}
-      </div>
-    )}
-  </div>
-);
+const GlobalCasesBlock: React.FC<Props> = ({ mergedCovidCountryData }) => {
+  const getGlobalData = () => {
+    const global = mergedCovidCountryData[mergedCovidCountryData.length - 1];
+    if (global.TotalConfirmed) {
+      return Math.round(
+        (global.TotalConfirmed * 4000.021),
+      );
+    }
+
+    return '';
+  };
+
+  return (
+    <div className={`${appstyles.app_component_block} ${styles.globalcases}`}>
+      <div className={appstyles.app_caption_title}>Global Cases</div>
+      { mergedCovidCountryData[0] && (
+        <div className={`${appstyles.app_caption_quantity} ${appstyles.app_caption_quantity__red}`}>
+          {getGlobalData()}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default GlobalCasesBlock;

@@ -39,7 +39,7 @@ const initialState = {
   mapPressedButtonType: 'cumulativeCases' as mapPressedButtonType,
   chartType: 'logCases' as chartType,
   currentChartData: [] as Array<ICurrentChartData>,
-  currentRegion: 'GLOBAL',
+  currentRegion: 'by',
   summaryData: [] as Array<ISummaryData>,
   countryInformation: [] as Array<ICountryInformation>,
   mergedCovidCountryData: [] as Array<IMergedElement>,

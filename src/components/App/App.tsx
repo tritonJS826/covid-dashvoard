@@ -9,14 +9,20 @@ import FooterBlock from '../FooterBlock';
 import appstyles from './style.module.scss';
 
 interface Props {
+  currentRegion: string;
   mergeCountryInfoCovidSummary: () => void;
+  // eslint-disable-next-line
+  getChartDataByCode: (code: string) => void;
 }
 
 const App: React.FC<Props> = ({
   mergeCountryInfoCovidSummary,
+  getChartDataByCode,
+  currentRegion,
 }) => {
   useEffect(() => {
     mergeCountryInfoCovidSummary();
+    getChartDataByCode(currentRegion);
   }, []);
 
   return (
