@@ -3,66 +3,28 @@ import { AnyAction } from 'redux';
 import { IMergedElement } from '../../interfaces/redux/appStore';
 
 import {
+  setChartData,
   setMergedCountryCovidData,
 } from './appStore';
 
-import { getCovidSummary, getCountryInfo } from '../../helper/getFetch';
+import { getCovidSummary, getCountryInfo, getChartData } from '../../helper/getFetch';
 
-// export const getCovidSummary = (): ThunkAction<Promise<void>, {}, {}, AnyAction> => async (
-//   dispatch: ThunkDispatch<{}, {}, AnyAction>,
-// ): Promise<void> => {
-//   try {
-//     const responseRaw = await fetch('https://api.covid19api.com/summary');
+export const getChartDataByCode = (code:string):
+ThunkAction<Promise<void>, {}, {}, AnyAction> => async (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+): Promise<void> => {
+  try {
+    const response = await getChartData(code);
 
-//     if (responseRaw.ok) {
-//       const response: ISummaryResponse = await responseRaw.json();
-
-//       const summaryData: Array<ISummaryData> = response.Countries;
-//       const {
-//         NewConfirmed,
-//         TotalConfirmed,
-//         NewDeaths,
-//         TotalDeaths,
-//         NewRecovered,
-//         TotalRecovered,
-//       } = response.Global;
-//       const date = response.Date;
-
-//       const global: ISummaryData = {
-//         Country: 'GLOBAL',
-//         CountryCode: '',
-//         Slug: '',
-//         NewConfirmed,
-//         TotalConfirmed,
-//         NewDeaths,
-//         TotalDeaths,
-//         NewRecovered,
-//         TotalRecovered,
-//         date,
-//       };
-
-//       dispatch(setSummaryData([...summaryData, global]));
-//     } else {
-//       console.log('serverError');
-//     }
-//   } catch (e) {
-//     console.log('fetchError');
-//   }
-// };
-
-// export const getCountryInfo = (): ThunkAction<Promise<void>, {}, {}, AnyAction> => async (
-//   dispatch: ThunkDispatch<{}, {}, AnyAction>,
-// ): Promise<void> => {
-//   const responseRaw = await fetch('https://restcountries.eu/rest/v2/all?fields=name;population;flag;latlng;alpha2Code');
-//   if (responseRaw.ok) {
-//     const response: Array<ICountryInformation> = await responseRaw.json();
-
-//     dispatch(setCountryInfo(response));
-//   } else {
-//     console.log('fetchError');
-//   }
-// };
-export const asd = () => {};
+    if (response) {
+      dispatch(setChartData(response));
+    } else {
+      console.log(`chartDataError: ${response}`);
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const mergeCountryInfoCovidSummary = ():
 ThunkAction<Promise<void>, {}, {}, AnyAction> => async (
@@ -86,7 +48,6 @@ ThunkAction<Promise<void>, {}, {}, AnyAction> => async (
         };
         return mergedElement;
       });
-      console.log('helper', mergedData);
       dispatch(setMergedCountryCovidData(mergedData));
     } else {
       console.log(`countryInfo: ${countryInfo} && covidSummary: ${covidSummary}`);

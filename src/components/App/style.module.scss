@@ -100,7 +100,7 @@
    }
   &_button {
     width: auto;
-    height: 15px;
+    height: 25px;
     margin: 1px 5px;
     font-size: 10px;
     border-radius: 10%;
@@ -114,6 +114,7 @@
     transition-duration: .3s;
     box-shadow: 0px 2px 3px #a09e9e4d;
     outline: none;
+    color: red;
   }
   &_popup {
     position: absolute;

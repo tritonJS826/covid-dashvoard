@@ -17,11 +17,11 @@ interface Props {
   data: Array<countryData>;
 }
 
-const getLineByType = (type: lineType, string: string, number: number) => {
-  if (type === 'recoveryCasesData') return <RecoveryListLine string={string} number={number} />;
-  if (type === 'deseaseCasesData') return <DeseaseListLine string={string} number={number} />;
-  if (type === 'deathCasesData') return <DeathListLine string={string} number={number} />;
-  return <CountryListLine string={string} number={number} />;
+const getLineByType = (type: lineType, string: string, number: number, code: string) => {
+  if (type === 'recoveryCasesData') return <RecoveryListLine string={string} number={number} code={code} />;
+  if (type === 'deseaseCasesData') return <DeseaseListLine string={string} number={number} code={code} />;
+  if (type === 'deathCasesData') return <DeathListLine string={string} number={number} code={code} />;
+  return <CountryListLine string={string} number={number} code={code} />;
 };
 
 const List: React.FC<Props> = ({
@@ -32,7 +32,6 @@ const List: React.FC<Props> = ({
 }) => (
   <div className={styles.list}>
     <div>
-      {console.log('List', data[0])}
       <div className={appstyles.app_caption}>
         <div className={appstyles.app_caption_title}>{title}</div>
         <div className={`${appstyles.app_caption_quantity} ${appstyles.app_caption_quantity}__white`}>
@@ -43,15 +42,16 @@ const List: React.FC<Props> = ({
     <div className={`${appstyles.app_table} ${styles.list_table}`}>
       <table className={styles.deathlistline}>
         {data && (
-        <tbody>
-          {data.map((country: countryData) => (
-            <tr key={country.id}>
-              <td className={appstyles.app_tableline}>
-                {getLineByType(type, country.country || 'undef', country.number || 0)}
-              </td>
-            </tr>
-          ))}
-        </tbody>
+          <tbody>
+            {data.filter((el: countryData) => (el.country && el.number && el.code))
+              .map((country: countryData, i: number) => (
+                <tr key={country.id + i.toString()}>
+                  <td className={appstyles.app_tableline}>
+                    {getLineByType(type, country.country || '', country.number || 0, country.code || '')}
+                  </td>
+                </tr>
+              ))}
+          </tbody>
         )}
       </table>
     </div>

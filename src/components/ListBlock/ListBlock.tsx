@@ -16,6 +16,7 @@ const ListBlock: React.FC<Props> = ({ mergedCovidCountryData }) => {
       country: country.Country,
       number: country.TotalConfirmed,
       id: i,
+      code: country.CountryCode,
     }));
   }
 
@@ -24,7 +25,6 @@ const ListBlock: React.FC<Props> = ({ mergedCovidCountryData }) => {
       <div className={appstyles.app_caption}>
         <div className={appstyles.app_caption_title}>Cases by Country/Region/Sovereignty</div>
       </div>
-      {console.log(countries)}
       {mergedCovidCountryData && (
       <List
         title="Global"
@@ -33,24 +33,7 @@ const ListBlock: React.FC<Props> = ({ mergedCovidCountryData }) => {
         data={countries}
       />
       )}
-      {/* <div>
-        <div className={appstyles.app_caption}>
-          <div className={appstyles.app_caption_title}>Cases by Country/Region/Sovereignty</div>
-        </div>
-      </div>
-      <table>
-        <tbody>
-          {countries.map((country) => (
-            <tr key={country.country.toLowerCase()}>
-              <td className={appstyles.app_tableline}>
-                <div className={`${appstyles.app_listline}
-                ${appstyles.app_listline_red}`}>{country.number}</div>
-                {country.country}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
+
       <div className={appstyles.app_buttons_wrapper}>
         <button type="button" className={appstyles.app_button}>cases</button>
         <button type="button" className={appstyles.app_button}>absolute</button>

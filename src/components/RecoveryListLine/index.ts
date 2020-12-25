@@ -1,16 +1,12 @@
 import { connect } from 'react-redux';
 
 import RecoveryListLine from './RecoveryListLine';
-// import { ICounterStore } from '../../interfaces/redux/counterStore';
-// import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
+import { getChartDataByCode } from '../../redux/creators/appStoreEffects';
 
-// const mapStateToProps = ({ counterStore: { counter } }: { counterStore: ICounterStore }) => ({
-//   counter,
-// });
+const mapStateToProps = () => ({});
 
-// const actions = {
-//   increaseCounter,
-//   decreaseCounter,
-// };
+const actions = {
+  getChartDataByCode,
+};
 
-export default connect()(RecoveryListLine);
+export default connect(mapStateToProps, actions)(RecoveryListLine);

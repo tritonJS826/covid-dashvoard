@@ -13,6 +13,7 @@ import {
   IMergedElement,
   ISummaryData,
   ICountryInformation,
+  IChartData,
 } from '../../interfaces/redux/appStore';
 
 import {
@@ -27,6 +28,7 @@ import {
   SET_COUNTRY_INFO,
   TOGGLE_CASES_NUMBER,
   SET_MERGED_COUNTRY_COVID_DATA,
+  SET_CHART_DATA,
 } from '../types/action-types';
 
 const initialState = {
@@ -41,6 +43,7 @@ const initialState = {
   summaryData: [] as Array<ISummaryData>,
   countryInformation: [] as Array<ICountryInformation>,
   mergedCovidCountryData: [] as Array<IMergedElement>,
+  chartData: [] as Array<IChartData>,
 };
 
 const appStore = (
@@ -110,10 +113,14 @@ const appStore = (
         casesNumber: state.casesNumber === 'absolute' ? 'normalize1000000' : 'absolute',
       };
     case SET_MERGED_COUNTRY_COVID_DATA:
-      console.log('payload', payload);
       return {
         ...state,
         mergedCovidCountryData: payload,
+      };
+    case SET_CHART_DATA:
+      return {
+        ...state,
+        chartData: payload,
       };
     default:
       return state;

@@ -35,13 +35,6 @@ interface Props {
   toggleCasesNumber: () => void;
 }
 
-// const getKeyByCasesDataType = (type: casesDataType):
-// 'TotalRecovered' | 'TotalConfirmed' | 'TotalDeaths' => {
-//   if (type === 'recoveryCasesData') return 'TotalRecovered';
-//   if (type === 'deseaseCasesData') return 'TotalConfirmed';
-//   return 'TotalDeaths';
-// };
-
 const TableBlock: React.FC<Props> = ({
   casesData,
   casesNumber,
@@ -69,17 +62,16 @@ const TableBlock: React.FC<Props> = ({
       return Math.round((amount / country.population) * 100000 * 1000) / 1000;
     };
 
-    console.log('try', tryNormalize(getNumberByCase(country, casesDataParam)));
     return {
       id: i,
       country: country.name,
       number: tryNormalize(getNumberByCase(country, casesDataParam)),
+      code: country.CountryCode,
     };
   });
 
   return (
     <div className={appstyles.app_component_block}>
-      {console.log('ListBlock', listData(casesData, casesNumber, data)[0])}
       {data && (
         <List
           title={casesData}
@@ -96,7 +88,7 @@ const TableBlock: React.FC<Props> = ({
           recoveries
         </button>
         <button type="button" className={appstyles.app_button} onClick={() => setCasesData('deseaseCasesData' as casesDataType)}>
-          test
+          desease
         </button>
         <button type="button" className={appstyles.app_button} onClick={toggleCasesNumber}>
           {casesNumber}

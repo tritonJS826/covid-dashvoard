@@ -1,18 +1,12 @@
 import { connect } from 'react-redux';
 
 import ChartPagination from './ChartPagination';
-// import { ICounterStore } from '../../interfaces/redux/counterStore';
-// import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
-import { IAppStore } from '../../interfaces/redux/appStore';
+import { setCasesData } from '../../redux/creators/appStore';
 
-const mapStateToProps = ({ appStore }: { appStore: IAppStore }) => ({
-  casesData: appStore.casesData,
-  casesNumber: appStore.casesNumber,
-});
+const mapStateToProps = () => ({});
 
-// const actions = {
-//   increaseCounter,
-//   decreaseCounter,
-// };
+const actions = {
+  setCasesData,
+};
 
-export default connect(mapStateToProps)(ChartPagination);
+export default connect(mapStateToProps, actions)(ChartPagination);
