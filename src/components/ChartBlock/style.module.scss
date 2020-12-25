@@ -1,7 +1,23 @@
 .chartblock {
-  // height: 200px;
-  &>div:first-child{
-    padding: 10px;
-    min-height: 130px;
-  }
+    // height: 200px;
+    & > div:first-child {
+        padding: 10px;
+        min-height: 130px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .chart_popup {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+}
+
+.chart_popup canvas {
+    height: 80vh !important;
+    width: 80vw !important;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Chart from '../Chart';
 import ChartPagination from '../ChartPagination';
 import styles from './style.module.scss';
@@ -95,15 +95,29 @@ const ChartBlock: React.FC<Props> = ({ data }) => {
   //     );
   //   }
   // }
+  const [isActive, setActive] = useState(false);
+
+  const addActiveClass = () => {
+    setActive(!isActive);
+  };
 
   return (
     <>
-      { data && console.log(data)}
-      <div className={`${appstyles.app_component_block} ${styles.chartblock}`}>
-        {console.log(data || dataMock)}
-        <Chart data={chartData()} />
-        <ChartPagination />
+      <div
+        className={
+          isActive
+            ? `${appstyles.app_component_block} ${styles.chart_popup}`
+            : `${appstyles.app_component_block}`
+        }
+        onDoubleClick={addActiveClass}
+      >
+        <div className={`${appstyles.app_component_block} ${styles.chartblock}`}>
+          {console.log(dataMock || data)}
+          <Chart data={chartData()} />
+          <ChartPagination />
+        </div>
       </div>
+
     </>
   );
 };

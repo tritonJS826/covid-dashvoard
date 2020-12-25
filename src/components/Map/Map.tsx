@@ -18,7 +18,6 @@ interface Props {
 }
 
 const Map: React.FC<Props> = ({ appStore }) => {
-  console.log(appStore);
   const renderCircle = () => appStore.mergedCovidCountryData
     .map((element) => element.latlng.length > 1 && (
     <CircleMarker

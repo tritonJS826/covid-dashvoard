@@ -34,7 +34,7 @@ const App: React.FC<Props> = ({
         </div>
         <div className={appstyles.app_right}>
           <TableBlock />
-          <ChartBlock />
+          <ChartBlock casesData="deathCasesData" />
         </div>
       </div>
       <footer className={appstyles.app_footer}>
