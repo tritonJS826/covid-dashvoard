@@ -1,16 +1,10 @@
 import { connect } from 'react-redux';
+import { IAppStore } from '../../interfaces/redux/appStore';
 
 import GlobalCasesBlock from './GlobalCasesBlock';
-// import { ICounterStore } from '../../interfaces/redux/counterStore';
-// import { increaseCounter, decreaseCounter } from '../../redux/creators/counterStore';
 
-// const mapStateToProps = ({ counterStore: { counter } }: { counterStore: ICounterStore }) => ({
-//   counter,
-// });
+const mapStateToProps = ({ appStore: { mergedCovidCountryData } }: { appStore: IAppStore }) => ({
+  mergedCovidCountryData,
+});
 
-// const actions = {
-//   increaseCounter,
-//   decreaseCounter,
-// };
-
-export default connect()(GlobalCasesBlock);
+export default connect(mapStateToProps)(GlobalCasesBlock);

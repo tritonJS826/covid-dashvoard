@@ -58,7 +58,7 @@ export const getCountryInfo = async (): Promise<ICountryInformation[] | null> =>
   }
 };
 
-export const getChartData = async (code: string): Promise<IChartData[] | null> => {
+export const getChartData = async (code: string = 'us'): Promise<IChartData[] | null> => {
   try {
     const responseRaw = await fetch(`https://api.covid19api.com/country/${code}`);
 
