@@ -1,0 +1,242 @@
+
+.app {
+  $color-red: #e60000;
+  $color-green: #70a800;
+  $color-white: #ffffff;
+  $color-blue: #73b2ff;
+  $color-light-grey: #bdbdbd;
+  $color-dark-grey: #363636;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  overflow-wrap: break-word;
+  
+  &_main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: calc(100vh - 120px);
+    width: 100%;
+    margin: 0 auto;
+  }
+  &_left, &_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  &_left, &_right, &_center, &_header, &_footer {
+    margin: 0 3px;
+  }
+  &_header {
+    min-height: 68px;
+  }
+  &_center {
+    width: 60%;
+  }
+  &_component_block {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    padding: 10px;
+    border: 1px solid #363636;
+    background-color: #222;
+  } 
+  &_caption {
+    text-align: center
+  }
+  &_caption_title {
+    font-size: 14px;
+  }
+  &_caption_quantity {
+    font-size: 25px;
+    font-weight: 600;
+  }
+  &_caption_quantity__red, &_listline_red {
+    color: $color-red;
+    font-size: 20px;
+  }
+  &_caption_quantity__green, &_listline_green {
+    color: $color-green;
+  }
+  &_caption_quantity__white, &_listline_white {
+    color: $color-white;
+  }
+  &_caption_quantity__blue, &_listline_blue {
+    color: $color-blue;
+  }
+  &_table {
+    overflow-y: scroll;
+    margin: 5px 0;
+  }
+  &_table::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px $color-white;
+  }
+  &_table::-webkit-scrollbar-thumb {
+    background-color: $color-light-grey;
+    outline: 1px solid $color-dark-grey;
+  }
+  &_table::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &_tableline {
+    border-bottom: 1px solid #363636;
+    }
+  &_listline {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  &_buttons_wrapper {
+    bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+   }
+  &_button {
+    width: auto;
+    height: 25px;
+    margin: 1px 5px;
+    font-size: 10px;
+    border-radius: 10%;
+    border: 1px solid $color-dark-grey;
+    background-color: $color-light-grey;
+  }
+  &_button:hover {
+    cursor: pointer;
+    border: 1px solid $color-light-grey;
+    background-color: $color-dark-grey;
+    transition-duration: .3s;
+    box-shadow: 0px 2px 3px #a09e9e4d;
+    outline: none;
+    color: red;
+  }
+  &_popup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #000;
+    z-index: 100;
+  }
+  &_popup_button {
+    display: none;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $color-dark-grey;
+    background-color: $color-light-grey;
+  }
+  &_popup_button_active {
+    display: block;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .app {
+    &_main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: auto;
+    }
+    &_left {
+      order: 1;
+      width: 100%;
+     }
+    &_right {
+      order: 2;
+      width: 100%;
+     }
+    // &_main {
+    //   height: 100%;
+    // }
+    &_center {
+      order: 3;
+      width: 100%;
+      height: 100vh;
+    }
+    &_footer {
+      order: 4;
+    }
+    &_caption_title {
+      font-size: 18px;
+    }
+    &_caption_quantity {
+      font-size: 28px;
+    }
+    &_caption_quantity__red {
+      font-size: 30px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .app {
+    flex-wrap: nowrap;
+    height: auto;
+    &_main {
+      height: auto;
+    }
+    &_left {
+      order: 2;
+      width: calc(50% - 6px);
+      justify-content: unset;
+     }
+    &_right {
+      order: 3;
+      width: calc(50% - 6px);
+      height: 100%;
+     }
+    &_center {
+      order: 4;
+      width: 100%;
+      min-height: 500px;
+    }
+    &_footer {
+      order: 5;
+    }
+    &_caption_title {
+      font-size: 16px;
+    }
+    &_caption_quantity {
+      font-size: 27px;
+    }
+    &_caption_quantity__red {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (min-width: 1025px){
+  .app {
+    height: 100vh;
+
+    &_main {
+    flex-wrap: nowrap;
+    }
+    &_left {
+      order: 1;
+     }
+     &_right {
+       order: 3;
+     }
+     &_center {
+       order: 2;
+     }
+  }
+}

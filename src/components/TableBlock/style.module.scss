@@ -1,0 +1,13 @@
+.tableblock {
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between; 
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+.tableblock {
+  height: 420px;
+  }
+}
